@@ -97,7 +97,7 @@ export default function Home() {
 
       <S.categoryTitle>어디로 가시나요?</S.categoryTitle>
 
-      <S.wrapCircleLine>
+      <S.wrapCircleLine className='scroll'>
         <S.locationCircle1>
           <S.locationTriangle />
           <S.myLocation>내주변</S.myLocation>
@@ -127,7 +127,7 @@ export default function Home() {
       <S.categoryExplanation>
         핫 한 웨이팅 라인업, 이제 캐치테이블에서!
       </S.categoryExplanation>
-      <S.wrapHotPlace>
+      <S.wrapHotPlace className='scroll'>
         {hotPlaceDataArr.map((value) => {
           return (
             <S.wrapRestaurant onClick={() => navigate(`store/${value.ID}`)}>
