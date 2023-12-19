@@ -5,7 +5,7 @@ import * as S from './Home.Styles';
 import '../.././../node_modules/slick-carousel/slick/slick-theme.css';
 import '../.././../node_modules/slick-carousel/slick/slick.css';
 
-import { useNavigate } from 'react-router';
+import { Navigate, useNavigate } from 'react-router';
 import Splash from '../../components/Splash/Splash';
 import {
   MenuData,
@@ -14,9 +14,11 @@ import {
   hotPlaceArrData,
   locArrData,
 } from './Homedata';
+import { useStore } from '../../store/useStore';
 
 export default function Home() {
   const navigate = useNavigate();
+  const userId = useStore((state) => state.userId);
   const [hotPlaceDataArr, setHotPlaceDataArr] = useState(hotPlaceArrData);
   const [isLoading, setIsLoading] = useState(true);
   const settings = {
@@ -64,6 +66,9 @@ export default function Home() {
   console.log(hotPlaceDataArr);
   if (isLoading) {
     return <Splash />;
+  }
+  if (!userId) {
+    return <Navigate to={'login'} />;
   }
   return (
     <S.wrapAll>
