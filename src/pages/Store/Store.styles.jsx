@@ -229,3 +229,15 @@ export const HomeBtnText = styled.h1`
   font-weight: 500;
   color: black;
 `;
+export const PictureSect = styled.section`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1px;
+`;
+export const PictureImg = styled.img`
+  width: 33%;
+`;
