@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const TodayButton = styled.button`
   position: absolute;
@@ -42,13 +42,33 @@ export const Line = styled.div`
   margin-top: 20px;
   margin-bottom: 15px;
 `;
+
+export const ReservationTimeWrapper = styled.div`
+  position: relative;
+  display: flex;
+  width: 100%;
+  overflow-x: auto;
+`;
 export const ReservationTime = styled.div`
   margin: 10px;
-  width: 100%;
   display: flex;
+  position: relative;
+  left: 0;
+  top: 0;
   padding: 15px;
-  margin-left: 40px;
   gap: 10px;
+`;
+
+export const TimeButton = styled.button`
+  width: 82px;
+  height: 39px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  background-color: #eb4f27;
+  margin-bottom: 15px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 `;
 
 export const CloseButton = styled.button`
@@ -71,19 +91,8 @@ export const PeopleButton = styled.button`
   border-radius: 50%;
   border: 1px solid #d9d9d9;
   cursor: pointer;
-  background-color: ${(props) => (props.isActive ? "#eb4f27" : "#fff")};
+  background-color: ${(props) => (props.isActive ? '#eb4f27' : '#fff')};
   margin: 10px;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-`;
-export const TimeButton = styled.button`
-  width: 82px;
-  height: 39px;
-  border-radius: 4px;
-  border: none;
-  cursor: pointer;
-  background-color: #eb4f27;
-  margin-bottom: 15px;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 `;

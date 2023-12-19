@@ -72,20 +72,23 @@ const ReservationCalender = () => {
               ))}
             </S.ReservationPeople>
           </S.ReservationPeopleContainer>
-          <S.ReservationTime>
-            {[17, 18, 19, 20].map((hour) => (
-              <S.TimeButton
-                key={hour}
-                onClick={() => {
-                  handleTimeButton(hour);
-                  setReservationDate(value);
-                  navigate(`/store/${reservationData.store.id}/reservation2`);
-                }}
-              >
-                {hour}시
-              </S.TimeButton>
-            ))}
-          </S.ReservationTime>
+          <S.ReservationTimeWrapper>
+            <S.ReservationTime>
+              {[17, 18, 19, 20, 21, 22, 23].map((hour) => (
+                <S.TimeButton
+                  key={hour}
+                  onClick={() => {
+                    handleTimeButton(hour);
+                    setReservationDate(value);
+                    navigate(`/store/${reservationData.store.id}/reservation2`);
+                  }}
+                >
+                  {hour}시
+                </S.TimeButton>
+              ))}
+            </S.ReservationTime>
+          </S.ReservationTimeWrapper>
+
           <S.CloseButton onClick={() => navigate(-1)}>닫기</S.CloseButton>
         </S.Reservation>
       </S.ReservationContainer>
