@@ -159,7 +159,7 @@ export default function Home() {
                 alt=' '
                 onClick={() => {
                   if (window.confirm('정말 로그아웃하시겠습니까?')) {
-                    localStorage.setItem('userId', null);
+                    localStorage.removeItem('userId');
                     if (index === 4) setUserId(null);
                   }
                 }}
