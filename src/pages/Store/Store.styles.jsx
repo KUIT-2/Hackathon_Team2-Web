@@ -126,12 +126,13 @@ export const PickHeader3 = styled.h3`
   font-weight: 600;
 `;
 export const PickBtn = styled.button`
-  background-color: #d9d9d9;
+  background-color: white;
   color: black;
   padding: 7px 11px;
   font-size: 12px;
   font-weight: 500;
   border: none;
+  border: 1px solid gray;
   border-radius: 24px;
 `;
 export const Footer = styled.footer`
