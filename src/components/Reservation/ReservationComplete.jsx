@@ -1,8 +1,10 @@
-import React from "react";
-import BottomSheet from "../BottomSheet/BottomSheet";
-import * as S from "../Reservation/ReservationComplete.styles";
+import React from 'react';
+import { useNavigate } from 'react-router';
+import BottomSheet from '../BottomSheet/BottomSheet';
+import * as S from '../Reservation/ReservationComplete.styles';
 
 const ReservationComplete = () => {
+  const navigate = useNavigate();
   return (
     <BottomSheet heightPer={30}>
       <S.CompleteContainer>
@@ -19,7 +21,9 @@ const ReservationComplete = () => {
         </S.CompleteInformation>
 
         <S.CompleteButton>
-          <S.GomainButton>메인으로 가기</S.GomainButton>
+          <S.GomainButton onClick={() => navigate('/')}>
+            메인으로 가기
+          </S.GomainButton>
           <S.CompleteConfirmButton>예약내역 확인</S.CompleteConfirmButton>
         </S.CompleteButton>
       </S.CompleteContainer>
