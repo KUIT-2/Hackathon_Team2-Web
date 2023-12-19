@@ -1,4 +1,29 @@
-import styled from 'styled-components';
+import styled from "styled-components";
+
+export const MenuComponent = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 12px;
+
+  font-size: 16px;
+  font-weight: 600;
+  border-bottom: 1px solid #ccc;
+`;
+export const MenuArr = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+`;
+export const MenuText = styled.div`
+  font-size: 20px;
+  font-weight: 600;
+  margin: 20px;
+`;
+export const Line = styled.div`
+  border-bottom: 1px solid #ccc;
+`;
 
 export const Header = styled.header`
   width: 100%;
@@ -188,8 +213,144 @@ export const CategoryBtn = styled.button`
   border: none;
   font-size: 16px;
   font-style: normal;
-  font-weight: ${(props) => (props.selected ? '600' : '500')};
+  font-weight: ${(props) => (props.selected ? "600" : "500")};
   border-bottom: 2px solid
-    ${(props) => (props.selected ? 'black' : 'lightgray')};
-  color: ${(props) => (props.selected ? 'black' : '#949494')};
+    ${(props) => (props.selected ? "black" : "lightgray")};
+  color: ${(props) => (props.selected ? "black" : "#949494")};
+`;
+
+export const HomeSect = styled.section`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 20px;
+  align-items: center;
+`;
+export const HomeBtn = styled.button`
+  width: 88%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: white;
+  border: 1px gray solid;
+  border-radius: 8px;
+  padding: 11px 16px;
+  align-items: center;
+`;
+export const HomeIcon = styled.img`
+  width: 24px;
+  height: 24px;
+`;
+export const HomeBtnDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  align-items: center;
+`;
+export const HomeBtnText = styled.h1`
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: black;
+`;
+export const PictureSect = styled.section`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1px;
+`;
+export const PictureImg = styled.img`
+  width: 33%;
+`;
+export const ReviewSec = styled.section`
+  display: flex;
+  flex-direction: column;
+`;
+export const ReviewDivWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-bottom: 1px lightgray solid;
+`;
+export const ReviewUserDiv = styled.div`
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+`;
+export const ReviewUserImg = styled.img`
+  width: 24px;
+  height: 24px;
+`;
+export const ReviewUserText = styled.h1`
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: black;
+`;
+export const ReviewInformRowDiv = styled.div`
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
+export const ReviewInformScoreDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+`;
+export const ReviewInformScoreText = styled.h2`
+  font-size: 12px;
+  font-weight: 600;
+  color: black;
+  margin: 0;
+`;
+export const ReviewInformScoreImg = styled.img`
+  width: 12px;
+  height: 12px;
+`;
+export const ReviewInformDateText = styled.h3`
+  font-size: 12px;
+  font-weight: 500;
+  color: gray;
+  margin: 0;
+`;
+export const ReviewImgDivWrapper = styled.div`
+  display: flex;
+  overflow-x: auto;
+  position: relative;
+  width: 100%;
+  margin-left: 20px;
+`;
+export const ReviewImgDiv = styled.div`
+  display: flex;
+  position: relative;
+  left: 0;
+  top: 0;
+  flex-direction: row;
+  gap: 8px;
+`;
+export const ReviewImg = styled.img`
+  width: 200px;
+  height: 200px;
+`;
+export const ReviewMainDiv = styled.div`
+  padding: 20px;
+  margin-bottom: 20px;
+`;
+export const ReviewMainText = styled.p`
+  margin: 0;
+  font-weight: 500;
+  color: black;
+  font-size: 16px;
+`;
+export const StoreWrapper = styled.div`
+  overflow-x: hidden;
 `;

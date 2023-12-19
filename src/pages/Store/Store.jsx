@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Outlet, useNavigate } from 'react-router';
+import React, { useEffect, useState } from 'react';
+import { Outlet, useNavigate, useParams } from 'react-router';
 import backImg from '../../assets/back.svg';
 import homeImg from '../../assets/home.svg';
 import shareImg from '../../assets/share.svg';
@@ -24,6 +24,11 @@ import {
   Header2,
   Header3,
   HeaderBtns,
+  HomeBtn,
+  HomeBtnDiv,
+  HomeBtnText,
+  HomeIcon,
+  HomeSect,
   Icon,
   IconBtn,
   Main,
@@ -32,27 +37,104 @@ import {
   PickBtn,
   PickHeader3,
   PickSect,
+  PictureImg,
+  PictureSect,
   ReserveBtn,
+  ReviewDivWrapper,
+  ReviewImg,
+  ReviewImgDiv,
+  ReviewImgDivWrapper,
+  ReviewInformDateText,
+  ReviewInformRowDiv,
+  ReviewInformScoreDiv,
+  ReviewInformScoreImg,
+  ReviewInformScoreText,
+  ReviewMainDiv,
+  ReviewMainText,
+  ReviewSec,
+  ReviewUserDiv,
+  ReviewUserImg,
+  ReviewUserText,
   StoreImg,
   StoreImgNum,
   StoreImgNumSect,
   StoreImgSect,
+  StoreWrapper,
+  Line,
+  MenuArr,
+  MenuComponent,
+  MenuText,
 } from './Store.styles';
+import calendarImg from '../../assets/calendar.svg';
+import arrowDownImg from '../../assets/arrow-down.svg';
+import pastaImg from '../../assets/_0005_pasta.jpg';
+import italianImg from '../../assets/_0004_italian.jpg';
+import japaneseImg from '../../assets/_0003_japanese.jpg';
+import frenchImg from '../../assets/_0002_french.jpg';
+import brunchImg from '../../assets/_0001_brunch.jpg';
+import peopleImg from '../../assets/people-new.svg';
+import { useStore } from '../../store/useStore';
+
+const storeInformData = {
+  name: '센시티브서울',
+  description: '감각적인 이탈리안 레스토랑',
+  category: '이탈리아음식',
+  location: '한남동',
+  rate: 4.3,
+  reviewNum: 333,
+  pictureNum: 18,
+  id: 1,
+};
+
+const reviewArrData = [
+  {
+    userName: '홍길동',
+    avgScore: 4.97822,
+    createAt: '2023-12-20 03:17:59',
+    reviewImage: 'https://example.com/reviewimage0.jpg',
+    review: 'Review 5',
+  },
+  {
+    userName: 'Name 7',
+    avgScore: 4.97822,
+    createAt: '2023-12-20 03:17:59',
+    reviewImage: 'https://example.com/reviewimage5.jpg',
+    review: 'Review 5',
+  },
+  {
+    userName: 'Name 7',
+    avgScore: 4.97822,
+    createAt: '2023-12-20 03:17:59',
+    reviewImage: 'https://example.com/reviewimage15.jpg',
+    review: 'Review 5',
+  },
+  {
+    userName: 'Name 7',
+    avgScore: 4.97822,
+    createAt: '2023-12-20 03:17:59',
+    reviewImage: 'https://example.com/reviewimage19.jpg',
+    review: 'Review 5',
+  },
+];
+
+const menuArrData = [
+  { menuname: 'Item 1', price: 12000 },
+  { menuname: 'Item 2', price: 8000 },
+  { menuname: 'Item 3', price: 10000 },
+  { menuname: 'Item 4', price: 20000 },
+];
 
 export default function Store() {
   const [selectedCategory, setSelectedCategory] = useState('홈');
   const [imageArr, setImageArr] = useState([storeImg, store2Img]);
-  const [storeInform, setStoreInform] = useState({
-    name: '센시티브서울',
-    description: '감각적인 이탈리안 레스토랑',
-    category: '이탈리아음식',
-    location: '한남동',
-    rate: 4.3,
-    reviewNum: 333,
-    pictureNum: 18,
-  });
+  const [reviewArr, setReviewArr] = useState(reviewArrData);
+  const [storeInform, setStoreInform] = useState(storeInformData);
   const [imageIndex, setImageIndex] = useState(0);
+  const { storeId } = useParams();
+  const setReservationStore = useStore((state) => state.setReservationStore);
   const navigate = useNavigate();
+  const [menuArr, setMenuArr] = useState(menuArrData);
+
   const nextHandler = () => {
     setImageIndex(() => {
       if (imageIndex === imageArr.length - 1) {
@@ -62,6 +144,36 @@ export default function Store() {
       }
     });
   };
+  useEffect(() => {
+    if (storeInform) {
+      setReservationStore(storeInform);
+    }
+  }, [storeInform]);
+  useEffect(() => {
+    if (storeId) {
+      fetch(`http://192.168.104.65:8080/store/detail/${storeId}`)
+        .then((data) => data.json())
+        .then((response) => {
+          // console.log(response);
+          // if (!response.ok) {
+          //   throw new Error('network error 400 or 500');
+          // }
+
+          setStoreInform({
+            name: response.result.storeName,
+            description: response.result.storeDesc,
+            category: response.result.categoryName,
+            location: response.result.address,
+            rate: response.result.avgScore,
+            reviewNum: 333,
+            pictureNum: 18,
+            id: storeId,
+          });
+        })
+        .catch((error) => console.error(error));
+    }
+  }, [storeId]);
+
   const prevHandler = () => {
     setImageIndex(() => {
       if (imageIndex === 0) {
@@ -72,7 +184,7 @@ export default function Store() {
     });
   };
   return (
-    <>
+    <StoreWrapper>
       <Header>
         <HeaderBtns>
           <IconBtn onClick={() => navigate(-1)}>
@@ -151,6 +263,75 @@ export default function Store() {
               리뷰({storeInform.reviewNum})
             </CategoryBtn>
           </CategoryBar>
+
+          {selectedCategory === '메뉴' && (
+            <div>
+              <MenuText>메뉴</MenuText>
+              <Line />
+              <MenuArr>
+                {menuArr.map((menuArr, index) => (
+                  <MenuComponent key={index}>
+                    <div>{menuArr.menuname}</div>
+                    <div>{menuArr.price}원</div>
+                  </MenuComponent>
+                ))}
+              </MenuArr>
+            </div>
+          )}
+
+          {selectedCategory === '홈' && (
+            <HomeSect>
+              <HomeBtn onClick={() => navigate('reservation1')}>
+                <HomeBtnDiv>
+                  <HomeIcon src={calendarImg} alt='' />
+                  <HomeBtnText>오늘(목) 2명</HomeBtnText>
+                </HomeBtnDiv>
+                <HomeIcon src={arrowDownImg} alt='' />
+              </HomeBtn>
+            </HomeSect>
+          )}
+
+          {selectedCategory === '사진' && (
+            <PictureSect>
+              <PictureImg src={pastaImg} alt='' />
+              <PictureImg src={italianImg} alt='' />
+              <PictureImg src={japaneseImg} alt='' />
+              <PictureImg src={frenchImg} alt='' />
+              <PictureImg src={brunchImg} alt='' />
+              <PictureImg src={italianImg} alt='' />
+            </PictureSect>
+          )}
+          {selectedCategory === '리뷰' && (
+            <ReviewSec>
+              {reviewArr.map((review) => (
+                <ReviewDivWrapper key={review.createAt}>
+                  <ReviewUserDiv>
+                    <ReviewUserImg src={peopleImg} alt='' />
+                    <ReviewUserText>{review.userName}</ReviewUserText>
+                  </ReviewUserDiv>
+                  <ReviewInformRowDiv>
+                    <ReviewInformScoreDiv>
+                      <ReviewInformScoreText>
+                        ★ {Math.floor(review.avgScore * 10) / 10}
+                      </ReviewInformScoreText>
+                      <ReviewInformScoreImg src={arrowDownImg} alt='' />
+                    </ReviewInformScoreDiv>
+                    <ReviewInformDateText>2023.12.14</ReviewInformDateText>
+                  </ReviewInformRowDiv>
+                  <ReviewImgDivWrapper>
+                    <ReviewImgDiv>
+                      <ReviewImg src={pastaImg} alt='' />
+                      <ReviewImg src={italianImg} alt='' />
+                      <ReviewImg src={japaneseImg} alt='' />
+                    </ReviewImgDiv>
+                  </ReviewImgDivWrapper>
+                  <ReviewMainDiv>
+                    <ReviewMainText>{review.review}</ReviewMainText>
+                  </ReviewMainDiv>
+                </ReviewDivWrapper>
+              ))}
+            </ReviewSec>
+          )}
         </CategoryDescription>
       </Main>
       <Footer>
@@ -162,6 +343,6 @@ export default function Store() {
         </ReserveBtn>
       </Footer>
       <Outlet />
-    </>
+    </StoreWrapper>
   );
 }

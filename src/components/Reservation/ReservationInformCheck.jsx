@@ -21,9 +21,11 @@ import {
 import peopleImg from '../../assets/people-new.svg';
 import calendarImg from '../../assets/calendar.svg';
 import { useNavigate } from 'react-router';
-
+import { useStore } from '../../store/useStore';
+const dayArr = ['월', '화', '수', '목', '금', '토', '일'];
 export default function ReservationInformCheck() {
   const navigate = useNavigate();
+  const reservationData = useStore((state) => state.reservation);
   return (
     <BottomSheet heightPer={70}>
       <CheckHeader>
@@ -33,21 +35,33 @@ export default function ReservationInformCheck() {
         <CheckHeading2>방문 일정을 다시 한번 확인해주세요.</CheckHeading2>
         <CheckMainSec>
           <CheckMainTitleSec>
-            <CheckStoreHeading1>센시티브서울</CheckStoreHeading1>
-            <CheckStoreHeading2>한남동 이탈리아음식</CheckStoreHeading2>
+            <CheckStoreHeading1>
+              {reservationData.store.name}
+            </CheckStoreHeading1>
+            <CheckStoreHeading2>
+              {reservationData.store.location} {reservationData.store.category}
+            </CheckStoreHeading2>
           </CheckMainTitleSec>
           <CheckInformSec>
             <CheckInformItem>
               <CheckInformItemIcon src={calendarImg} alt='' />
-              <CheckInformItemText>1.06(금)</CheckInformItemText>
+              <CheckInformItemText>
+                {reservationData.date.getMonth() + 1}.
+                {reservationData.date.getDate()}(
+                {dayArr[reservationData.date.getDay()]})
+              </CheckInformItemText>
             </CheckInformItem>
             <CheckInformItem>
               <CheckInformItemIcon src={peopleImg} alt='' />
-              <CheckInformItemText>오후 6:30</CheckInformItemText>
+              <CheckInformItemText>
+                오후 {reservationData.time}:00
+              </CheckInformItemText>
             </CheckInformItem>
             <CheckInformItem>
               <CheckInformItemIcon src={peopleImg} alt='' />
-              <CheckInformItemText>2명</CheckInformItemText>
+              <CheckInformItemText>
+                {reservationData.peopleNum}명
+              </CheckInformItemText>
             </CheckInformItem>
           </CheckInformSec>
         </CheckMainSec>
