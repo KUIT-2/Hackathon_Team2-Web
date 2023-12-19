@@ -7,6 +7,7 @@ import ReservationInformCheck from '../components/Reservation/ReservationInformC
 import Home from './Home/Home';
 import Login from './Login/Login';
 import Payment from './Payment/Payment';
+import Register from './Register/Register';
 import Root from './Root/Root';
 import Search from './Search/Search';
 import Store from './Store/Store';
@@ -24,6 +25,10 @@ const Router = () => {
         {
           path: '/login',
           element: <Login />,
+        },
+        {
+          path: '/register',
+          element: <Register />,
         },
         {
           path: '/search',
