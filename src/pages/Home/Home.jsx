@@ -96,6 +96,49 @@ const locArrData = [
   },
 ];
 
+const hotPlaceArrData = [
+  {
+    ID: 1,
+    Picture: restaurant1Image,
+    Name: ['고에몬 홍대AK점'],
+    Rate: 3.8,
+    Type: ['일식 파스타'],
+    Loc: ['홍대'],
+  },
+  {
+    ID: 2,
+    Picture: restaurant2Image,
+    Name: ['타코튜즈데이'],
+    Rate: 4.5,
+    Type: ['멕시코음식'],
+    Loc: ['성수'],
+  },
+  {
+    ID: 3,
+    Picture: restaurant3Image,
+    Name: ['맛집막국수'],
+    Rate: 4.3,
+    Type: ['국수,냉면'],
+    Loc: ['안성'],
+  },
+  {
+    ID: 4,
+    Picture: restaurant4Image,
+    Name: ['이재모피자 본점'],
+    Rate: 4.5,
+    Type: ['피자'],
+    Loc: ['부산 남포동'],
+  },
+  {
+    ID: 5,
+    Picture: restaurant5Image,
+    Name: ['태닝돈'],
+    Rate: 4.3,
+    Type: ['돼지고기'],
+    Loc: ['부산 광안리'],
+  },
+]
+
 export default function Home() {
   const navigate = useNavigate();
   const settings = {
@@ -226,50 +269,18 @@ export default function Home() {
         핫 한 웨이팅 라인업, 이제 캐치테이블에서!
       </S.categoryExplanation>
       <S.wrapHotPlace>
-        <S.wrapRestaurant onClick={() => navigate('store/1')}>
-          <S.restaurantPicture imageurl={restaurant1Image} />
-          <S.restaurantName>고에몬 홍대AK점</S.restaurantName>
-          <S.restaurantInfoLine>
-            <S.restaurantRate>★ 3.8</S.restaurantRate>
-            <S.restaurantInfo>일식 파스타 · 홍대</S.restaurantInfo>
-          </S.restaurantInfoLine>
-        </S.wrapRestaurant>
-
-        <S.wrapRestaurant>
-          <S.restaurantPicture imageurl={restaurant2Image} />
-          <S.restaurantName>타코튜즈데이</S.restaurantName>
-          <S.restaurantInfoLine>
-            <S.restaurantRate>★ 4.5</S.restaurantRate>
-            <S.restaurantInfo>멕시코음식 · 성수</S.restaurantInfo>
-          </S.restaurantInfoLine>
-        </S.wrapRestaurant>
-
-        <S.wrapRestaurant>
-          <S.restaurantPicture imageurl={restaurant3Image} />
-          <S.restaurantName>맛집막국수</S.restaurantName>
-          <S.restaurantInfoLine>
-            <S.restaurantRate>★ 4.3</S.restaurantRate>
-            <S.restaurantInfo>국수,냉면 · 안성</S.restaurantInfo>
-          </S.restaurantInfoLine>
-        </S.wrapRestaurant>
-
-        <S.wrapRestaurant>
-          <S.restaurantPicture imageurl={restaurant4Image} />
-          <S.restaurantName>이재모피자 본점</S.restaurantName>
-          <S.restaurantInfoLine>
-            <S.restaurantRate>★ 4.5</S.restaurantRate>
-            <S.restaurantInfo>피자 · 부산 남포동</S.restaurantInfo>
-          </S.restaurantInfoLine>
-        </S.wrapRestaurant>
-
-        <S.wrapRestaurant>
-          <S.restaurantPicture imageurl={restaurant5Image} />
-          <S.restaurantName>태닝돈</S.restaurantName>
-          <S.restaurantInfoLine>
-            <S.restaurantRate>★ 4.3</S.restaurantRate>
-            <S.restaurantInfo>돼지고기 · 부산 광안리</S.restaurantInfo>
-          </S.restaurantInfoLine>
-        </S.wrapRestaurant>
+        {hotPlaceArrData.map((value) => {
+          return (
+            <S.wrapRestaurant onClick={() => navigate(`store/${value.ID}`)}>
+              <S.restaurantPicture imageurl={value.Picture} />
+              <S.restaurantName>{value.Name}</S.restaurantName>
+              <S.restaurantInfoLine>
+                <S.restaurantRate>★ {value.Rate}</S.restaurantRate>
+                <S.restaurantInfo>{value.Type} · {value.Loc}</S.restaurantInfo>
+              </S.restaurantInfoLine>
+            </S.wrapRestaurant>
+          )
+        })}
       </S.wrapHotPlace>
     </S.wrapAll>
   );
