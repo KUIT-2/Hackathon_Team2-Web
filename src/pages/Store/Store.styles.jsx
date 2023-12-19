@@ -193,3 +193,39 @@ export const CategoryBtn = styled.button`
     ${(props) => (props.selected ? 'black' : 'lightgray')};
   color: ${(props) => (props.selected ? 'black' : '#949494')};
 `;
+
+export const HomeSect = styled.section`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 20px;
+  align-items: center;
+`;
+export const HomeBtn = styled.button`
+  width: 88%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: white;
+  border: 1px gray solid;
+  border-radius: 8px;
+  padding: 11px 16px;
+  align-items: center;
+`;
+export const HomeIcon = styled.img`
+  width: 24px;
+  height: 24px;
+`;
+export const HomeBtnDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  align-items: center;
+`;
+export const HomeBtnText = styled.h1`
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: black;
+`;

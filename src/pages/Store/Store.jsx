@@ -24,6 +24,11 @@ import {
   Header2,
   Header3,
   HeaderBtns,
+  HomeBtn,
+  HomeBtnDiv,
+  HomeBtnText,
+  HomeIcon,
+  HomeSect,
   Icon,
   IconBtn,
   Main,
@@ -38,6 +43,8 @@ import {
   StoreImgNumSect,
   StoreImgSect,
 } from './Store.styles';
+import calendarImg from '../../assets/calendar.svg';
+import arrowDownImg from '../../assets/arrow-down.svg';
 import { useStore } from '../../store/useStore';
 
 const storeInformData = {
@@ -185,7 +192,17 @@ export default function Store() {
               리뷰({storeInform.reviewNum})
             </CategoryBtn>
           </CategoryBar>
-          {selectedCategory === '홈' && <div>홈</div>}
+          {selectedCategory === '홈' && (
+            <HomeSect>
+              <HomeBtn onClick={() => navigate('reservation1')}>
+                <HomeBtnDiv>
+                  <HomeIcon src={calendarImg} alt='' />
+                  <HomeBtnText>오늘(목) 2명</HomeBtnText>
+                </HomeBtnDiv>
+                <HomeIcon src={arrowDownImg} alt='' />
+              </HomeBtn>
+            </HomeSect>
+          )}
           {selectedCategory === '메뉴' && <div>메뉴</div>}
           {selectedCategory === '사진' && <div>사진</div>}
           {selectedCategory === '리뷰' && <div>리뷰</div>}
