@@ -14,8 +14,10 @@ export const TodayButton = styled.button`
 
 export const ReservationPeopleContainer = styled.div`
   display: flex;
+  position: relative;
   width: 100%;
   border-radius: 24px;
+  overflow: scroll;
 `;
 export const ReservationContainer = styled.div`
   width: 100%;
@@ -45,6 +47,7 @@ export const ReservationTime = styled.div`
   display: flex;
   padding: 15px;
   margin-left: 40px;
+  gap: 10px;
 `;
 
 export const CloseButton = styled.button`
