@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import Calendar from 'react-calendar';
-import './ReservationCalendar.css';
-import moment from 'moment';
-import BottomSheet from '../BottomSheet/BottomSheet';
-import { useNavigate } from 'react-router';
-import * as S from './ReservationCalendar.styles';
-import { useStore } from '../../store/useStore';
+import React, { useEffect, useState } from "react";
+import Calendar from "react-calendar";
+import "./ReservationCalendar.css";
+import moment from "moment";
+import BottomSheet from "../BottomSheet/BottomSheet";
+import { useNavigate } from "react-router";
+import * as S from "./ReservationCalendar.styles";
+import { useStore } from "../../store/useStore";
 
 const ReservationCalender = () => {
   const [peopleNum, setpeopleNum] = useState(1);
@@ -53,7 +53,7 @@ const ReservationCalender = () => {
             value={value}
             next2Label={null}
             prev2Label={null}
-            formatDay={(loacle, date) => moment(date).format('D')}
+            formatDay={(loacle, date) => moment(date).format("D")}
           />
           <S.Line />
           <S.ReservationPeopleContainer>
