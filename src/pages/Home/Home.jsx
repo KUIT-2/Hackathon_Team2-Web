@@ -6,8 +6,10 @@ import '../.././../node_modules/slick-carousel/slick/slick-theme.css';
 import '../.././../node_modules/slick-carousel/slick/slick.css';
 
 import { useNavigate } from 'react-router';
+import Splash from '../../components/Splash/Splash';
 import {
   MenuData,
+  bottomData,
   carouselData,
   hotPlaceArrData,
   locArrData,
@@ -61,7 +63,7 @@ export default function Home() {
   }, []);
   console.log(hotPlaceDataArr);
   if (isLoading) {
-    return <></>;
+    return <Splash />;
   }
   return (
     <S.wrapAll>
@@ -141,6 +143,14 @@ export default function Home() {
           );
         })}
       </S.wrapHotPlace>
+
+      <S.wrapBottom>
+        <S.bottomGrid>
+          {bottomData.map((value) => {
+            return <S.bottomPicture imageurl={value} alt=' ' />;
+          })}
+        </S.bottomGrid>
+      </S.wrapBottom>
     </S.wrapAll>
   );
 }
