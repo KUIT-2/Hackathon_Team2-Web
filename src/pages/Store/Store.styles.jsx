@@ -1,4 +1,29 @@
-import styled from 'styled-components';
+import styled from "styled-components";
+
+export const MenuComponent = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 12px;
+
+  font-size: 16px;
+  font-weight: 600;
+  border-bottom: 1px solid #ccc;
+`;
+export const MenuArr = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+`;
+export const MenuText = styled.div`
+  font-size: 20px;
+  font-weight: 600;
+  margin: 20px;
+`;
+export const Line = styled.div`
+  border-bottom: 1px solid #ccc;
+`;
 
 export const Header = styled.header`
   width: 100%;
@@ -188,8 +213,8 @@ export const CategoryBtn = styled.button`
   border: none;
   font-size: 16px;
   font-style: normal;
-  font-weight: ${(props) => (props.selected ? '600' : '500')};
+  font-weight: ${(props) => (props.selected ? "600" : "500")};
   border-bottom: 2px solid
-    ${(props) => (props.selected ? 'black' : 'lightgray')};
-  color: ${(props) => (props.selected ? 'black' : '#949494')};
+    ${(props) => (props.selected ? "black" : "lightgray")};
+  color: ${(props) => (props.selected ? "black" : "#949494")};
 `;
