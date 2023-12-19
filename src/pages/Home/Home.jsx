@@ -57,7 +57,6 @@ export default function Home() {
 
   return (
     <S.wrapAll>
-      <S.spaceTop />
       <S.wrapTop>
         <S.logo />
         <S.inputBackground>
