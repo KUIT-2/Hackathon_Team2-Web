@@ -1,0 +1,9 @@
+<svg id="ic_normal_seat" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <path id="패스_2135" data-name="패스 2135" d="M0,0H24V24H0Z" fill="none"/>
+  <g id="그룹_1175" data-name="그룹 1175" transform="translate(3)">
+    <path id="패스_2039" data-name="패스 2039" d="M.75,0A.75.75,0,0,1,1.5.75v22.5a.75.75,0,0,1-1.5,0V.75A.75.75,0,0,1,.75,0Z"/>
+    <path id="패스_2040" data-name="패스 2040" d="M.75,0A.75.75,0,0,1,1.5.75v10.5a.75.75,0,0,1-1.5,0V.75A.75.75,0,0,1,.75,0Z" transform="translate(16 12)"/>
+    <path id="패스_2041" data-name="패스 2041" d="M.75,0A.75.75,0,0,1,1.5.75v15.5a.75.75,0,0,1-1.5,0V.75A.75.75,0,0,1,.75,0Z" transform="translate(17 16) rotate(90)"/>
+    <path id="패스_1356" data-name="패스 1356" d="M.75-.437a.75.75,0,0,1,.75.75V16.25a.75.75,0,0,1-1.5,0V.313A.75.75,0,0,1,.75-.437Z" transform="translate(17 12) rotate(90)"/>
+  </g>
+</svg>
