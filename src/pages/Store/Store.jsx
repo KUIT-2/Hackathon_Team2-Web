@@ -78,9 +78,9 @@ export default function Store() {
       fetch(`http://192.168.104.65:8080/store/detail/${storeId}`)
         .then((data) => data.json())
         .then((response) => {
-          // if (!response.ok) {
-          //   throw new Error('network error 400 or 500');
-          // }
+          if (!response.ok) {
+            throw new Error('network error 400 or 500');
+          }
           setStoreInform({
             name: response.result.storeName,
             description: response.result.storeDesc,
