@@ -21,7 +21,7 @@ const Router = () => {
           element: <Home />,
         },
         {
-          path: "/search",
+          path: '/search',
           element: <Search />,
         },
         {
@@ -29,23 +29,23 @@ const Router = () => {
           element: <Store />,
           children: [
             {
-              path: "reservation1",
+              path: 'reservation1',
               element: <ReservationCalender />,
             },
             {
-              path: "reservation2",
+              path: 'reservation2',
               element: <ReservationInformCheck />,
             },
             {
-              path: "payment",
+              path: 'payment',
               element: <ReservationPayment />,
               children: [
                 {
-                  path: "check",
+                  path: 'check',
                   element: <ReservationFinalCheck />,
                 },
                 {
-                  path: "complete",
+                  path: 'complete',
                   element: <ReservationComplete />,
                 },
               ],
