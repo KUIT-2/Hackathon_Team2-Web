@@ -3,7 +3,7 @@ import Calendar from "react-calendar";
 import "./ReservationCalendar.css";
 import styled from "styled-components";
 import moment from "moment";
-
+import BottomSheet from "../BottomSheet/BottomSheet";
 
 const ReservationCalender = () => {
   const [value, onChange] = useState(new Date());
@@ -16,7 +16,7 @@ const ReservationCalender = () => {
     onChange(today);
   };
   return (
-    <div>
+    <BottomSheet heightPer={85}>
       <ReservationContainer>
         <Reservation>
           <TodayButton onClick={() => TodayButtonClick(value)}>
@@ -49,7 +49,7 @@ const ReservationCalender = () => {
           <CloseButton>닫기</CloseButton>
         </Reservation>
       </ReservationContainer>
-    </div>
+    </BottomSheet>
   );
 };
 
@@ -57,8 +57,8 @@ export default ReservationCalender;
 
 const TodayButton = styled.button`
   position: absolute;
-  left: 50px;
-  top: 10px;
+  left: 35px;
+  top: 35px;
   border: none;
   background-color: #fff;
   text-decoration: underline;
@@ -73,9 +73,6 @@ const ReservationPeopleContainer = styled.div`
   border-radius: 24px;
 `;
 const ReservationContainer = styled.div`
-  position: fixed;
-
-  bottom: 0;
   width: 100%;
   border-radius: 24px;
 `;
@@ -126,7 +123,7 @@ const PeopleButton = styled.button`
   border: 1px solid #d9d9d9;
   cursor: pointer;
   background-color: ${(props) => (props.isActive ? "#eb4f27" : "#fff")};
-  margin: 8px;
+  margin: 10px;
 `;
 const TimeButton = styled.button`
   width: 82px;
@@ -135,4 +132,5 @@ const TimeButton = styled.button`
   border: none;
   cursor: pointer;
   background-color: #eb4f27;
+  margin-bottom: 15px;
 `;

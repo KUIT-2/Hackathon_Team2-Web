@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const BottomSheetWrapper = styled.section`
   background-color: rgba(0, 0, 0, 0.5);
@@ -14,4 +14,5 @@ export const ChildrenWrapper = styled.div`
   background-color: white;
   width: 100%;
   height: ${(props) => props.heightper}%;
+  border-radius: 5% 5% 0% 0%;
 `;
