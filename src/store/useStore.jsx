@@ -11,10 +11,26 @@ export const useStore = create((set) => ({
           reservation: {
             time,
             date: new Date(),
+            store: null,
+            peopleNum: 1,
           },
         };
       }
-      return { ...state.reservation, time };
+      return { reservation: { ...state.reservation, time } };
+    }),
+  setReservationStore: (store) =>
+    set((state) => {
+      if (!state.reservation) {
+        return {
+          reservation: {
+            time: 17,
+            date: new Date(),
+            store,
+            peopleNum: 1,
+          },
+        };
+      }
+      return { reservation: { ...state.reservation, store } };
     }),
   setReservationDate: (date) =>
     set((state) => {
@@ -23,10 +39,26 @@ export const useStore = create((set) => ({
           reservation: {
             time: 17,
             date,
+            store: null,
+            peopleNum: 1,
           },
         };
       }
-      return { ...state.reservation, date };
+      return { reservation: { ...state.reservation, date } };
+    }),
+  setReservationPeopleNum: (peopleNum) =>
+    set((state) => {
+      if (!state.reservation) {
+        return {
+          reservation: {
+            time: 17,
+            date: new Date(),
+            store: null,
+            peopleNum,
+          },
+        };
+      }
+      return { reservation: { ...state.reservation, peopleNum } };
     }),
   user: null,
   setUser: (userData) => set(() => ({ user: userData })),
