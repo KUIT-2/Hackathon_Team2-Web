@@ -60,6 +60,43 @@ export default function Home() {
       imgUrl: busanImage,
       locArr: ['부산'],
     },
+    {
+      imgUrl: sungsooImage,
+      locArr: ['성수'],
+    },
+    {
+      imgUrl: gwanghwamunImage,
+      locArr: ['광화문', '종로'],
+    },
+    {
+      imgUrl: jejuImage,
+      locArr: ['제주'],
+    },
+    {
+      imgUrl: daeguImage,
+      locArr: ['진주'],
+    },
+    {
+      imgUrl: apgujeongImage,
+      locArr: ['울산'],
+    },
+    {
+      imgUrl: itaewonImage,
+      locArr: ['광주'],
+    },
+    {
+      imgUrl: sungsooImage,
+      locArr: ['전주'],
+    },
+    {
+      imgUrl: jejuImage,
+      locArr: ['대전'],
+    },
+    {
+      imgUrl: busanImage,
+      locArr: ['군산'],
+    }
+
   ]);
   const settings = {
     dots: true,
