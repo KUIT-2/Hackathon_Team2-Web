@@ -9,9 +9,13 @@ import { useStore } from '../../store/useStore';
 
 const ReservationCalender = () => {
   const [peopleNum, setpeopleNum] = useState(1);
+  const [value, setValue] = useState(new Date());
   const reservationData = useStore((state) => state.reservation);
   const setReservationTime = useStore((state) => state.setReservationTime);
   const setReservationDate = useStore((state) => state.setReservationDate);
+  const setReservationPeopleNum = useStore(
+    (state) => state.setReservationPeopleNum
+  );
 
   const navigate = useNavigate();
   const handlePeopleButton = (index) => {
@@ -28,11 +32,15 @@ const ReservationCalender = () => {
     setReservationDate(today);
   };
   const handleCalendarChange = (value, event) => {
-    setReservationDate(value);
+    setValue(value);
   };
   const handleTimeButton = (hour) => {
     setReservationTime(hour);
   };
+  // useEffect(() => {
+  //   console.log(value);
+  //   setReservationDate(value);
+  // }, [value]);
 
   return (
     <BottomSheet heightPer={85}>
@@ -41,7 +49,7 @@ const ReservationCalender = () => {
           <S.TodayButton onClick={() => TodayButtonClick()}>오늘</S.TodayButton>
           <Calendar
             onChange={handleCalendarChange}
-            value={reservationData ? reservationData.date : new Date()}
+            value={value}
             next2Label={null}
             prev2Label={null}
             formatDay={(loacle, date) => moment(date).format('D')}
@@ -52,7 +60,10 @@ const ReservationCalender = () => {
               {[...Array(20)].map((_, index) => (
                 <S.PeopleButton
                   key={index}
-                  onClick={() => handlePeopleButton(index)}
+                  onClick={() => {
+                    handlePeopleButton(index);
+                    setReservationPeopleNum(index + 1);
+                  }}
                   isActive={peopleNum === index + 1}
                 >
                   {index + 1}명
@@ -66,6 +77,7 @@ const ReservationCalender = () => {
                 key={hour}
                 onClick={() => {
                   handleTimeButton(hour);
+                  setReservationDate(value);
                   navigate('/store/2/reservation2');
                 }}
               >

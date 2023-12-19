@@ -22,6 +22,7 @@ export const ReservationPeopleContainer = styled.div`
 export const ReservationContainer = styled.div`
   width: 100%;
   border-radius: 24px;
+  overflow-x: hidden;
 `;
 export const Reservation = styled.div`
   display: flex;
@@ -72,6 +73,8 @@ export const PeopleButton = styled.button`
   cursor: pointer;
   background-color: ${(props) => (props.isActive ? "#eb4f27" : "#fff")};
   margin: 10px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 `;
 export const TimeButton = styled.button`
   width: 82px;
@@ -81,4 +84,6 @@ export const TimeButton = styled.button`
   cursor: pointer;
   background-color: #eb4f27;
   margin-bottom: 15px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 `;

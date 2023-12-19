@@ -5,9 +5,9 @@ import * as S from './Home.Styles';
 import '../.././../node_modules/slick-carousel/slick/slick-theme.css';
 import '../.././../node_modules/slick-carousel/slick/slick.css';
 
-
 import { useNavigate } from 'react-router';
 import { MenuData, bottomData, carouselData, hotPlaceArrData, locArrData } from './Homedata';
+
 
 
 export default function Home() {
@@ -34,9 +34,7 @@ export default function Home() {
       <S.wrapCarousel>
         <S.StyledSlider {...settings}>
           {carouselData.map((value) => {
-            return (
-              <S.carouselPicture src={value} />
-            )
+            return <S.carouselPicture src={value} />;
           })}
         </S.StyledSlider>
       </S.wrapCarousel>
@@ -48,7 +46,7 @@ export default function Home() {
               <S.gridPicture imageurl={value.Image} alt=' ' />
               <S.gridWrite>{value.Title}</S.gridWrite>
             </S.gridItem>
-          )
+          );
         })}
       </S.gridContainer>
 
@@ -92,10 +90,12 @@ export default function Home() {
               <S.restaurantName>{value.Name}</S.restaurantName>
               <S.restaurantInfoLine>
                 <S.restaurantRate>★ {value.Rate}</S.restaurantRate>
-                <S.restaurantInfo>{value.Type} · {value.Loc}</S.restaurantInfo>
+                <S.restaurantInfo>
+                  {value.Type} · {value.Loc}
+                </S.restaurantInfo>
               </S.restaurantInfoLine>
             </S.wrapRestaurant>
-          )
+          );
         })}
       </S.wrapHotPlace>
 
