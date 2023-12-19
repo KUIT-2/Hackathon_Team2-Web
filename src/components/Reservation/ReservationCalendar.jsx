@@ -1,32 +1,37 @@
-import React, { useState } from "react";
-import Calendar from "react-calendar";
-import "./ReservationCalendar.css";
-import moment from "moment";
-import BottomSheet from "../BottomSheet/BottomSheet";
-import { useNavigate } from "react-router";
-import * as S from "./ReservationCalendar.styles";
+import React, { useEffect, useState } from 'react';
+import Calendar from 'react-calendar';
+import './ReservationCalendar.css';
+import moment from 'moment';
+import BottomSheet from '../BottomSheet/BottomSheet';
+import { useNavigate } from 'react-router';
+import * as S from './ReservationCalendar.styles';
+import { useStore } from '../../store/useStore';
 
 const ReservationCalender = () => {
-  const [value, setValue] = useState(new Date());
   const [peopleNum, setpeopleNum] = useState(1);
-  const [timeValue, setTimeValue] = useState();
+  const reservationData = useStore((state) => state.reservation);
+  const setReservationTime = useStore((state) => state.setReservationTime);
+  const setReservationDate = useStore((state) => state.setReservationDate);
 
   const navigate = useNavigate();
-
   const handlePeopleButton = (index) => {
     const peopleCount = index + 1;
     setpeopleNum(peopleCount);
   };
-
+  useEffect(() => {
+    if (!reservationData) {
+      setReservationDate(new Date());
+    }
+  }, []);
   const TodayButtonClick = () => {
     const today = new Date();
-    setValue(today);
+    setReservationDate(today);
   };
   const handleCalendarChange = (value, event) => {
-    setValue(value);
+    setReservationDate(value);
   };
   const handleTimeButton = (hour) => {
-    setTimeValue(hour);
+    setReservationTime(hour);
   };
 
   return (
@@ -36,10 +41,10 @@ const ReservationCalender = () => {
           <S.TodayButton onClick={() => TodayButtonClick()}>오늘</S.TodayButton>
           <Calendar
             onChange={handleCalendarChange}
-            value={value}
+            value={reservationData ? reservationData.date : new Date()}
             next2Label={null}
             prev2Label={null}
-            formatDay={(loacle, date) => moment(date).format("D")}
+            formatDay={(loacle, date) => moment(date).format('D')}
           />
           <S.Line />
           <S.ReservationPeopleContainer>
@@ -55,9 +60,15 @@ const ReservationCalender = () => {
               ))}
             </S.ReservationPeople>
           </S.ReservationPeopleContainer>
-          <S.ReservationTime onClick={() => navigate("/store/2/reservation2")}>
+          <S.ReservationTime>
             {[17, 18, 19, 20].map((hour) => (
-              <S.TimeButton key={hour} onClick={() => handleTimeButton(hour)}>
+              <S.TimeButton
+                key={hour}
+                onClick={() => {
+                  handleTimeButton(hour);
+                  navigate('/store/2/reservation2');
+                }}
+              >
                 {hour}시
               </S.TimeButton>
             ))}
