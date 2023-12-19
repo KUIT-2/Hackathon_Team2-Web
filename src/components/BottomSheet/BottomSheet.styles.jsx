@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const BottomSheetWrapper = styled.section`
   background-color: rgba(0, 0, 0, 0.5);
@@ -7,6 +7,7 @@ export const BottomSheetWrapper = styled.section`
   left: 0;
   width: 100vw;
   height: 100vh;
+  z-index: 3;
 `;
 export const ChildrenWrapper = styled.div`
   position: fixed;
@@ -15,4 +16,5 @@ export const ChildrenWrapper = styled.div`
   width: 100%;
   height: ${(props) => props.heightper}%;
   border-radius: 5% 5% 0% 0%;
+  overflow-y: auto;
 `;

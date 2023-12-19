@@ -1,19 +1,19 @@
-import React from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import ReservationCalender from "../components/Reservation/ReservationCalendar";
-import ReservationComplete from "../components/Reservation/ReservationComplete";
-import ReservationFinalCheck from "../components/Reservation/ReservationFinalCheck";
-import ReservationInformCheck from "../components/Reservation/ReservationInformCheck";
-import ReservationPayment from "../components/Reservation/ReservationPayment";
-import Home from "./Home/Home";
-import Root from "./Root/Root";
-import Search from "./Search/Search";
-import Store from "./Store/Store";
+import React from 'react';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import ReservationCalender from '../components/Reservation/ReservationCalendar';
+import ReservationComplete from '../components/Reservation/ReservationComplete';
+import ReservationFinalCheck from '../components/Reservation/ReservationFinalCheck';
+import ReservationInformCheck from '../components/Reservation/ReservationInformCheck';
+import ReservationPayment from '../components/Reservation/ReservationPayment';
+import Home from './Home/Home';
+import Root from './Root/Root';
+import Search from './Search/Search';
+import Store from './Store/Store';
 
 const Router = () => {
   const router = createBrowserRouter([
     {
-      path: "/",
+      path: '/',
       element: <Root />,
       children: [
         {
@@ -21,34 +21,34 @@ const Router = () => {
           element: <Home />,
         },
         {
-          path: "/search",
+          path: '/search',
           element: <Search />,
         },
         {
-          path: "/store/:storeId",
+          path: '/store/:storeId',
           element: <Store />,
           children: [
             {
-              path: "reservation1",
+              path: 'reservation1',
               element: <ReservationCalender />,
             },
             {
-              path: "reservation2",
+              path: 'reservation2',
               element: <ReservationInformCheck />,
             },
+          ],
+        },
+        {
+          path: 'payment',
+          element: <ReservationPayment />,
+          children: [
             {
-              path: "payment",
-              element: <ReservationPayment />,
-              children: [
-                {
-                  path: "check",
-                  element: <ReservationFinalCheck />,
-                },
-                {
-                  path: "complete",
-                  element: <ReservationComplete />,
-                },
-              ],
+              path: 'check',
+              element: <ReservationFinalCheck />,
+            },
+            {
+              path: 'complete',
+              element: <ReservationComplete />,
             },
           ],
         },
