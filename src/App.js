@@ -1,10 +1,12 @@
 import './App.css';
+import { Normalize } from 'styled-normalize';
 import Router from './pages';
 function App() {
   return (
-    <div className='App'>
+    <>
+      <Normalize />
       <Router />
-    </div>
+    </>
   );
 }
 

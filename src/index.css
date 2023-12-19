@@ -1,4 +1,8 @@
 * {
   font-family: 'Roboto', 'Noto Sans KR';
   box-sizing: border-box;
+
+}
+body {
+  margin: 0;
 }
