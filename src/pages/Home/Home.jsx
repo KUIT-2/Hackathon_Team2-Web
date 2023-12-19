@@ -12,7 +12,6 @@ import {
   hotPlaceArrData,
   locArrData,
 } from './Homedata';
-import Splash from '../../components/Splash/Splash';
 
 export default function Home() {
   const navigate = useNavigate();
@@ -102,7 +101,6 @@ export default function Home() {
           );
         })}
       </S.wrapHotPlace>
-      <Splash />
     </S.wrapAll>
   );
 }
