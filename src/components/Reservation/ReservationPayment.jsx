@@ -1,5 +1,11 @@
-import React from 'react';
+import React from "react";
+import { Outlet } from "react-router";
 
 export default function ReservationPayment() {
-  return <div>ReservationPayment</div>;
+  return (
+    <div>
+      ReservationPayment
+      <Outlet />
+    </div>
+  );
 }

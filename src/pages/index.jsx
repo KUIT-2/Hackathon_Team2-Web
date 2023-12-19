@@ -1,6 +1,6 @@
 import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import ReservationCalender from '../components/Reservation/ReservationCalender';
+import ReservationCalender from '../components/Reservation/ReservationCalendar';
 import ReservationComplete from '../components/Reservation/ReservationComplete';
 import ReservationFinalCheck from '../components/Reservation/ReservationFinalCheck';
 import ReservationInformCheck from '../components/Reservation/ReservationInformCheck';
