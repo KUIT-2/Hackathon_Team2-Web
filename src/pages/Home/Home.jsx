@@ -95,8 +95,7 @@ export default function Home() {
     {
       imgUrl: busanImage,
       locArr: ['군산'],
-    }
-
+    },
   ]);
   const settings = {
     dots: true,
@@ -200,45 +199,25 @@ export default function Home() {
           <S.locationTriangle />
           <S.myLocation>내주변</S.myLocation>
         </S.locationCircle1>
-        <S.locationCircle imageurl={apgujeongImage} alt=' '>
-          <S.wantLocation>압구정</S.wantLocation>
-          <S.wantLocation2>청담</S.wantLocation2>
-        </S.locationCircle>
-        <S.locationCircle imageurl={itaewonImage} alt=' '>
-          <S.wantLocation>이태원</S.wantLocation>
-          <S.wantLocation2>한남</S.wantLocation2>
-        </S.locationCircle>
-        <S.locationCircle imageurl={busanImage} alt=' '>
-          <S.wantLocation3>부산</S.wantLocation3>
-        </S.locationCircle>
-        <S.locationCircle imageurl={sungsooImage} alt=' '>
-          <S.wantLocation3>성수</S.wantLocation3>
-        </S.locationCircle>
-        <S.locationCircle imageurl={gwanghwamunImage} alt=' '>
-          <S.wantLocation>광화문</S.wantLocation>
-          <S.wantLocation2>종로</S.wantLocation2>
-        </S.locationCircle>
-        <S.locationCircle imageurl={jejuImage} alt=' '>
-          <S.wantLocation3>제주</S.wantLocation3>
-        </S.locationCircle>
-        <S.locationCircle imageurl={daeguImage} alt=' '>
-          <S.wantLocation3>진주</S.wantLocation3>
-        </S.locationCircle>
-        <S.locationCircle imageurl={apgujeongImage} alt=' '>
-          <S.wantLocation3>울산</S.wantLocation3>
-        </S.locationCircle>
-        <S.locationCircle imageurl={itaewonImage} alt=' '>
-          <S.wantLocation3>광주</S.wantLocation3>
-        </S.locationCircle>
-        <S.locationCircle imageurl={sungsooImage} alt=' '>
-          <S.wantLocation3>전주</S.wantLocation3>
-        </S.locationCircle>
-        <S.locationCircle imageurl={jejuImage} alt=' '>
-          <S.wantLocation3>대전</S.wantLocation3>
-        </S.locationCircle>
-        <S.locationCircle imageurl={busanImage} alt=' '>
-          <S.wantLocation3>군산</S.wantLocation3>
-        </S.locationCircle>
+        {locationArr.map((value) => {
+          if (!value.locArr) return <></>;
+          if (value.locArr.length === 1) {
+            return (
+              <S.locationCircle imageurl={value.imgUrl} alt=' '>
+                <S.wantLocation3>{value.locArr[0]}</S.wantLocation3>
+              </S.locationCircle>
+            );
+          } else if (value.locArr.length === 2) {
+            return (
+              <S.locationCircle imageurl={value.imgUrl} alt=' '>
+                <S.wantLocation>{value.locArr[0]}</S.wantLocation>
+                <S.wantLocation2>{value.locArr[1]}</S.wantLocation2>
+              </S.locationCircle>
+            );
+          } else {
+            return <></>;
+          }
+        })}
       </S.wrapCircleLine>
 
       <S.categoryTitle>웨이팅 핫플레이스 BEST</S.categoryTitle>
