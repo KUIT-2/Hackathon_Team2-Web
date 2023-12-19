@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { Outlet, useNavigate, useParams } from "react-router";
-import backImg from "../../assets/back.svg";
-import homeImg from "../../assets/home.svg";
-import shareImg from "../../assets/share.svg";
-import locationImg from "../../assets/location.svg";
-import storeImg from "../../assets/ee45b3f0f27249b3821ff044e4a5ffdd.jpeg";
-import store2Img from "../../assets/f4cc8e02-8067-4b31-bfd0-8873981cbfc4.png";
-import bookMarkImg from "../../assets/bookmark.svg";
+import React, { useEffect, useState } from 'react';
+import { Outlet, useNavigate, useParams } from 'react-router';
+import backImg from '../../assets/back.svg';
+import homeImg from '../../assets/home.svg';
+import shareImg from '../../assets/share.svg';
+import locationImg from '../../assets/location.svg';
+import storeImg from '../../assets/ee45b3f0f27249b3821ff044e4a5ffdd.jpeg';
+import store2Img from '../../assets/f4cc8e02-8067-4b31-bfd0-8873981cbfc4.png';
+import bookMarkImg from '../../assets/bookmark.svg';
 import {
   BookMarkBtn,
   BookMarkBtnImg,
@@ -40,45 +40,94 @@ import {
   PictureImg,
   PictureSect,
   ReserveBtn,
+  ReviewDivWrapper,
+  ReviewImg,
+  ReviewImgDiv,
+  ReviewImgDivWrapper,
+  ReviewInformDateText,
+  ReviewInformRowDiv,
+  ReviewInformScoreDiv,
+  ReviewInformScoreImg,
+  ReviewInformScoreText,
+  ReviewMainDiv,
+  ReviewMainText,
+  ReviewSec,
+  ReviewUserDiv,
+  ReviewUserImg,
+  ReviewUserText,
   StoreImg,
   StoreImgNum,
   StoreImgNumSect,
   StoreImgSect,
+  StoreWrapper,
   Line,
   MenuArr,
   MenuComponent,
   MenuText,
-} from "./Store.styles";
-import calendarImg from "../../assets/calendar.svg";
-import arrowDownImg from "../../assets/arrow-down.svg";
-import pastaImg from "../../assets/_0005_pasta.jpg";
-import italianImg from "../../assets/_0004_italian.jpg";
-import japaneseImg from "../../assets/_0003_japanese.jpg";
-import frenchImg from "../../assets/_0002_french.jpg";
-import brunchImg from "../../assets/_0001_brunch.jpg";
-import { useStore } from "../../store/useStore";
+} from './Store.styles';
+import calendarImg from '../../assets/calendar.svg';
+import arrowDownImg from '../../assets/arrow-down.svg';
+import pastaImg from '../../assets/_0005_pasta.jpg';
+import italianImg from '../../assets/_0004_italian.jpg';
+import japaneseImg from '../../assets/_0003_japanese.jpg';
+import frenchImg from '../../assets/_0002_french.jpg';
+import brunchImg from '../../assets/_0001_brunch.jpg';
+import peopleImg from '../../assets/people-new.svg';
+import { useStore } from '../../store/useStore';
 
 const storeInformData = {
-  name: "센시티브서울",
-  description: "감각적인 이탈리안 레스토랑",
-  category: "이탈리아음식",
-  location: "한남동",
+  name: '센시티브서울',
+  description: '감각적인 이탈리안 레스토랑',
+  category: '이탈리아음식',
+  location: '한남동',
   rate: 4.3,
   reviewNum: 333,
   pictureNum: 18,
   id: 1,
 };
 
+const reviewArrData = [
+  {
+    userName: '홍길동',
+    avgScore: 4.97822,
+    createAt: '2023-12-20 03:17:59',
+    reviewImage: 'https://example.com/reviewimage0.jpg',
+    review: 'Review 5',
+  },
+  {
+    userName: 'Name 7',
+    avgScore: 4.97822,
+    createAt: '2023-12-20 03:17:59',
+    reviewImage: 'https://example.com/reviewimage5.jpg',
+    review: 'Review 5',
+  },
+  {
+    userName: 'Name 7',
+    avgScore: 4.97822,
+    createAt: '2023-12-20 03:17:59',
+    reviewImage: 'https://example.com/reviewimage15.jpg',
+    review: 'Review 5',
+  },
+  {
+    userName: 'Name 7',
+    avgScore: 4.97822,
+    createAt: '2023-12-20 03:17:59',
+    reviewImage: 'https://example.com/reviewimage19.jpg',
+    review: 'Review 5',
+  },
+];
+
 const menuArrData = [
-  { menuname: "Item 1", price: 12000 },
-  { menuname: "Item 2", price: 8000 },
-  { menuname: "Item 3", price: 10000 },
-  { menuname: "Item 4", price: 20000 },
+  { menuname: 'Item 1', price: 12000 },
+  { menuname: 'Item 2', price: 8000 },
+  { menuname: 'Item 3', price: 10000 },
+  { menuname: 'Item 4', price: 20000 },
 ];
 
 export default function Store() {
-  const [selectedCategory, setSelectedCategory] = useState("홈");
+  const [selectedCategory, setSelectedCategory] = useState('홈');
   const [imageArr, setImageArr] = useState([storeImg, store2Img]);
+  const [reviewArr, setReviewArr] = useState(reviewArrData);
   const [storeInform, setStoreInform] = useState(storeInformData);
   const [imageIndex, setImageIndex] = useState(0);
   const { storeId } = useParams();
@@ -135,22 +184,22 @@ export default function Store() {
     });
   };
   return (
-    <>
+    <StoreWrapper>
       <Header>
         <HeaderBtns>
           <IconBtn onClick={() => navigate(-1)}>
-            <Icon src={backImg} alt="" />
+            <Icon src={backImg} alt='' />
           </IconBtn>
-          <IconBtn onClick={() => navigate("/")}>
-            <Icon src={homeImg} alt="" />
+          <IconBtn onClick={() => navigate('/')}>
+            <Icon src={homeImg} alt='' />
           </IconBtn>
         </HeaderBtns>
         <HeaderBtns>
           <IconBtn onClick={nextHandler}>
-            <BookMarkIcon src={bookMarkImg} alt="" />
+            <BookMarkIcon src={bookMarkImg} alt='' />
           </IconBtn>
           <IconBtn>
-            <Icon src={shareImg} alt="" />
+            <Icon src={shareImg} alt='' />
           </IconBtn>
         </HeaderBtns>
       </Header>
@@ -160,7 +209,7 @@ export default function Store() {
           <CaeraselWrapper imageindex={imageIndex}>
             {imageArr.map((image, index) => (
               <CaeraselItemWrapper key={index}>
-                <img src={image} alt="" />
+                <img src={image} alt='' />
               </CaeraselItemWrapper>
             ))}
           </CaeraselWrapper>
@@ -180,7 +229,7 @@ export default function Store() {
             ☆ {storeInform.rate} ({storeInform.reviewNum})
           </Header3>
           <MapBtn>
-            <MapIcon src={locationImg} alt="" />
+            <MapIcon src={locationImg} alt='' />
           </MapBtn>
         </DescriptionSect>
         <PickSect>
@@ -190,32 +239,32 @@ export default function Store() {
         <CategoryDescription>
           <CategoryBar>
             <CategoryBtn
-              onClick={() => setSelectedCategory("홈")}
-              selected={selectedCategory === "홈"}
+              onClick={() => setSelectedCategory('홈')}
+              selected={selectedCategory === '홈'}
             >
               홈
             </CategoryBtn>
             <CategoryBtn
-              onClick={() => setSelectedCategory("메뉴")}
-              selected={selectedCategory === "메뉴"}
+              onClick={() => setSelectedCategory('메뉴')}
+              selected={selectedCategory === '메뉴'}
             >
               메뉴
             </CategoryBtn>
             <CategoryBtn
-              onClick={() => setSelectedCategory("사진")}
-              selected={selectedCategory === "사진"}
+              onClick={() => setSelectedCategory('사진')}
+              selected={selectedCategory === '사진'}
             >
               사진({storeInform.pictureNum})
             </CategoryBtn>
             <CategoryBtn
-              onClick={() => setSelectedCategory("리뷰")}
-              selected={selectedCategory === "리뷰"}
+              onClick={() => setSelectedCategory('리뷰')}
+              selected={selectedCategory === '리뷰'}
             >
               리뷰({storeInform.reviewNum})
             </CategoryBtn>
           </CategoryBar>
 
-          {selectedCategory === "메뉴" && (
+          {selectedCategory === '메뉴' && (
             <div>
               <MenuText>메뉴</MenuText>
               <Line />
@@ -230,40 +279,70 @@ export default function Store() {
             </div>
           )}
 
-          {selectedCategory === "홈" && (
+          {selectedCategory === '홈' && (
             <HomeSect>
-              <HomeBtn onClick={() => navigate("reservation1")}>
+              <HomeBtn onClick={() => navigate('reservation1')}>
                 <HomeBtnDiv>
-                  <HomeIcon src={calendarImg} alt="" />
+                  <HomeIcon src={calendarImg} alt='' />
                   <HomeBtnText>오늘(목) 2명</HomeBtnText>
                 </HomeBtnDiv>
-                <HomeIcon src={arrowDownImg} alt="" />
+                <HomeIcon src={arrowDownImg} alt='' />
               </HomeBtn>
             </HomeSect>
           )}
 
-          {selectedCategory === "사진" && (
+          {selectedCategory === '사진' && (
             <PictureSect>
-              <PictureImg src={pastaImg} alt="" />
-              <PictureImg src={italianImg} alt="" />
-              <PictureImg src={japaneseImg} alt="" />
-              <PictureImg src={frenchImg} alt="" />
-              <PictureImg src={brunchImg} alt="" />
-              <PictureImg src={italianImg} alt="" />
+              <PictureImg src={pastaImg} alt='' />
+              <PictureImg src={italianImg} alt='' />
+              <PictureImg src={japaneseImg} alt='' />
+              <PictureImg src={frenchImg} alt='' />
+              <PictureImg src={brunchImg} alt='' />
+              <PictureImg src={italianImg} alt='' />
             </PictureSect>
           )}
-          {selectedCategory === "리뷰" && <div>리뷰</div>}
+          {selectedCategory === '리뷰' && (
+            <ReviewSec>
+              {reviewArr.map((review) => (
+                <ReviewDivWrapper key={review.createAt}>
+                  <ReviewUserDiv>
+                    <ReviewUserImg src={peopleImg} alt='' />
+                    <ReviewUserText>{review.userName}</ReviewUserText>
+                  </ReviewUserDiv>
+                  <ReviewInformRowDiv>
+                    <ReviewInformScoreDiv>
+                      <ReviewInformScoreText>
+                        ★ {Math.floor(review.avgScore * 10) / 10}
+                      </ReviewInformScoreText>
+                      <ReviewInformScoreImg src={arrowDownImg} alt='' />
+                    </ReviewInformScoreDiv>
+                    <ReviewInformDateText>2023.12.14</ReviewInformDateText>
+                  </ReviewInformRowDiv>
+                  <ReviewImgDivWrapper>
+                    <ReviewImgDiv>
+                      <ReviewImg src={pastaImg} alt='' />
+                      <ReviewImg src={italianImg} alt='' />
+                      <ReviewImg src={japaneseImg} alt='' />
+                    </ReviewImgDiv>
+                  </ReviewImgDivWrapper>
+                  <ReviewMainDiv>
+                    <ReviewMainText>{review.review}</ReviewMainText>
+                  </ReviewMainDiv>
+                </ReviewDivWrapper>
+              ))}
+            </ReviewSec>
+          )}
         </CategoryDescription>
       </Main>
       <Footer>
         <BookMarkBtn>
-          <BookMarkBtnImg src={bookMarkImg} alt="" />
+          <BookMarkBtnImg src={bookMarkImg} alt='' />
         </BookMarkBtn>
-        <ReserveBtn onClick={() => navigate("reservation1")}>
+        <ReserveBtn onClick={() => navigate('reservation1')}>
           예약하기
         </ReserveBtn>
       </Footer>
       <Outlet />
-    </>
+    </StoreWrapper>
   );
 }
