@@ -16,6 +16,7 @@ import {
 export default function Home() {
   const navigate = useNavigate();
   const [hotPlaceDataArr, setHotPlaceDataArr] = useState(hotPlaceArrData);
+  const [isLoading, setIsLoading] = useState(true);
   const settings = {
     dots: true,
     infinite: true,
@@ -25,6 +26,7 @@ export default function Home() {
   };
 
   useEffect(() => {
+    setIsLoading(true);
     fetch(`http://192.168.104.65:8080/store/hotplace`)
       .then((data) => data.json())
       .then((response) => {
@@ -54,9 +56,13 @@ export default function Home() {
           setHotPlaceDataArr(dataArr);
         }
       })
-      .catch((error) => console.error(error));
+      .catch((error) => console.error(error))
+      .finally(() => setIsLoading(false));
   }, []);
   console.log(hotPlaceDataArr);
+  if (isLoading) {
+    return <></>;
+  }
   return (
     <S.wrapAll>
       <S.wrapTop>
