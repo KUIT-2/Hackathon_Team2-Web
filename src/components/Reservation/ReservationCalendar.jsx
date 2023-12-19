@@ -21,9 +21,7 @@ const ReservationCalender = () => {
     <BottomSheet heightPer={85}>
       <S.ReservationContainer>
         <S.Reservation>
-          <S.TodayButton onClick={() => TodayButtonClick(value)}>
-            오늘
-          </S.TodayButton>
+          <S.TodayButton onClick={() => TodayButtonClick()}>오늘</S.TodayButton>
           <Calendar
             onChange={onChange}
             value={value}
