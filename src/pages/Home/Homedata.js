@@ -37,6 +37,12 @@ import restaurant3Image from '../../assets/b052ffc1-28fb-45f3-a648-bee5c75e4852.
 import restaurant4Image from '../../assets/67f66c0f-3809-484f-92d2-96f4371397e2.png';
 import restaurant5Image from '../../assets/b9e85d2f-84a6-449d-9ca1-99564493855a.png';
 
+import homeImage from '../../assets/dock-home-on.svg';
+import searchImage from '../../assets/dock-search.svg';
+import messageImage from '../../assets/message.svg';
+import calendarImage from '../../assets/dock-mydining.svg';
+import peopleImage from '../../assets/people-new.svg';
+
 export const MenuData = [
     {
       Image: best23Image,
@@ -204,6 +210,14 @@ export const MenuData = [
       Type: ['돼지고기'],
       Loc: ['부산 광안리'],
     },
+  ]
+
+  export const bottomData = [
+    homeImage, 
+    searchImage,
+    messageImage, 
+    calendarImage, 
+    peopleImage,
   ]
   
   

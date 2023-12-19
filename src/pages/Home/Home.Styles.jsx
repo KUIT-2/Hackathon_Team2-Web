@@ -363,3 +363,35 @@ export const restaurantInfo = styled.span`
   font-size: 10px;
   font-style: normal;
 `;
+
+export const wrapBottom = styled.div`
+  background-color: white;
+  position: fixed;
+  bottom: 0;
+  padding: 0 8px;
+  padding-bottom: 50px;
+  z-index: 1;
+  border: none;
+  display: flex;
+  flex-direction: row;
+  padding-top: 12px;
+  width: 100%;
+`;
+
+export const bottomGrid = styled.div`
+  display: flex;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  justify-content: space-around;
+  width: 100%;
+  align-items: center;
+`;
+
+export const bottomPicture = styled.div`
+  background-image: url(${(props) => props.imageurl});
+  background-size: cover;
+  background-position: center;
+  width: 32px;
+  height: 32px;
+`;
