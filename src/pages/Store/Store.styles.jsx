@@ -79,6 +79,11 @@ export const MapBtn = styled.button`
   box-shadow: 0 0 10px;
 `;
 
+export const MapIcon = styled.img`
+  width: 24px;
+  height: 24px;
+`;
+
 export const Header1 = styled.h1`
   margin: 0;
   font-size: 20px;

@@ -3,6 +3,7 @@ import { Outlet } from 'react-router';
 import backImg from '../../assets/back.svg';
 import homeImg from '../../assets/home.svg';
 import shareImg from '../../assets/share.svg';
+import locationImg from '../../assets/location.svg';
 import storeImg from '../../assets/ee45b3f0f27249b3821ff044e4a5ffdd.jpeg';
 import bookMarkImg from '../../assets/bookmark.svg';
 import {
@@ -24,6 +25,7 @@ import {
   IconBtn,
   Main,
   MapBtn,
+  MapIcon,
   PickBtn,
   PickHeader3,
   PickSect,
@@ -69,7 +71,7 @@ export default function Store() {
           <Header3>음식 종류,지역</Header3>
           <Header3>☆ X.X (XX)</Header3>
           <MapBtn>
-            <img src={backImg} alt='' />
+            <MapIcon src={locationImg} alt='' />
           </MapBtn>
         </DescriptionSect>
         <PickSect>
