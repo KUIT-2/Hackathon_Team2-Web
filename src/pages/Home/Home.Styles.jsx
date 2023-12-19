@@ -306,6 +306,7 @@ export const wrapHotPlace = styled.div`
   white-space: nowrap;
   margin-top: 24px;
   margin-left: 10px;
+  margin-bottom: 80px;
 `;
 
 export const wrapRestaurant = styled.div`
@@ -369,7 +370,7 @@ export const wrapBottom = styled.div`
   position: fixed;
   bottom: 0;
   padding: 0 8px;
-  padding-bottom: 50px;
+  padding-bottom: 20px;
   z-index: 1;
   border: none;
   display: flex;

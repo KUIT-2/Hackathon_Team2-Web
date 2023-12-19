@@ -6,9 +6,13 @@ import '../.././../node_modules/slick-carousel/slick/slick-theme.css';
 import '../.././../node_modules/slick-carousel/slick/slick.css';
 
 import { useNavigate } from 'react-router';
-import { MenuData, bottomData, carouselData, hotPlaceArrData, locArrData } from './Homedata';
-
-
+import {
+  MenuData,
+  bottomData,
+  carouselData,
+  hotPlaceArrData,
+  locArrData,
+} from './Homedata';
 
 export default function Home() {
   const navigate = useNavigate();
@@ -101,14 +105,11 @@ export default function Home() {
 
       <S.wrapBottom>
         <S.bottomGrid>
-          {bottomData.map((value => {
-            return (
-              <S.bottomPicture imageurl={value} alt=' ' />
-            )
-          }))}
+          {bottomData.map((value) => {
+            return <S.bottomPicture imageurl={value} alt=' ' />;
+          })}
         </S.bottomGrid>
       </S.wrapBottom>
-
     </S.wrapAll>
   );
 }
