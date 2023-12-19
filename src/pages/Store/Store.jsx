@@ -253,7 +253,7 @@ export default function Store() {
             {storeInform.category},{storeInform.location}
           </Header3>
           <Header3>
-            ☆ {storeInform.rate} ({storeInform.reviewNum})
+            ☆ {Math.floor(storeInform.rate * 10) / 10} ({storeInform.reviewNum})
           </Header3>
           <MapBtn>
             <MapIcon src={locationImg} alt='' />
