@@ -48,6 +48,10 @@ import {
 import calendarImg from '../../assets/calendar.svg';
 import arrowDownImg from '../../assets/arrow-down.svg';
 import pastaImg from '../../assets/_0005_pasta.jpg';
+import italianImg from '../../assets/_0004_italian.jpg';
+import japaneseImg from '../../assets/_0003_japanese.jpg';
+import frenchImg from '../../assets/_0002_french.jpg';
+import brunchImg from '../../assets/_0001_brunch.jpg';
 import { useStore } from '../../store/useStore';
 
 const storeInformData = {
@@ -211,11 +215,11 @@ export default function Store() {
           {selectedCategory === '사진' && (
             <PictureSect>
               <PictureImg src={pastaImg} alt='' />
-              <PictureImg src={pastaImg} alt='' />
-              <PictureImg src={pastaImg} alt='' />
-              <PictureImg src={pastaImg} alt='' />
-              <PictureImg src={pastaImg} alt='' />
-              <PictureImg src={pastaImg} alt='' />
+              <PictureImg src={italianImg} alt='' />
+              <PictureImg src={japaneseImg} alt='' />
+              <PictureImg src={frenchImg} alt='' />
+              <PictureImg src={brunchImg} alt='' />
+              <PictureImg src={italianImg} alt='' />
             </PictureSect>
           )}
           {selectedCategory === '리뷰' && <div>리뷰</div>}
