@@ -70,6 +70,7 @@ export default function Register() {
         />
         <S.inputPassword
           name='password'
+          type='password'
           value={newMember.password}
           onChange={handleChange}
           placeholder='사용할 비밀번호를 입력하세요.'

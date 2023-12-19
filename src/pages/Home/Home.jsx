@@ -95,7 +95,7 @@ export default function Home() {
         {MenuData.map((value) => {
           return (
             <S.gridItem>
-              <S.gridPicture imageurl={value.Image} alt=' ' />
+              <S.gridPicture imageurl={value.Image} alt='gridPicture' />
               <S.gridWrite>{value.Title}</S.gridWrite>
             </S.gridItem>
           );
@@ -113,13 +113,13 @@ export default function Home() {
           if (!value.locArr) return <></>;
           if (value.locArr.length === 1) {
             return (
-              <S.locationCircle imageurl={value.imgUrl} alt=' '>
+              <S.locationCircle imageurl={value.imgUrl} alt='locationCircle'>
                 <S.wantLocation3>{value.locArr[0]}</S.wantLocation3>
               </S.locationCircle>
             );
           } else if (value.locArr.length === 2) {
             return (
-              <S.locationCircle imageurl={value.imgUrl} alt=' '>
+              <S.locationCircle imageurl={value.imgUrl} alt='locationCircle'>
                 <S.wantLocation>{value.locArr[0]}</S.wantLocation>
                 <S.wantLocation2>{value.locArr[1]}</S.wantLocation2>
               </S.locationCircle>
@@ -157,7 +157,7 @@ export default function Home() {
             return (
               <S.bottomPicture
                 imageurl={value}
-                alt=' '
+                alt='bottomPicture'
                 onClick={() => {
                   if (window.confirm('정말 로그아웃하시겠습니까?')) {
                     localStorage.removeItem('userId');

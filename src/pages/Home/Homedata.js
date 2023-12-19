@@ -44,180 +44,177 @@ import calendarImage from '../../assets/dock-mydining.svg';
 import peopleImage from '../../assets/people-new.svg';
 
 export const MenuData = [
-    {
-      Image: best23Image,
-      Title: ['23년베스트'],
-    },
-    {
-      Image: onlinewaitingImage,
-      Title: ['온라인웨이팅'],
-    },
-    {
-      Image: hiddenplaceImage,
-      Title: ['히든플레이스'],
-    },
-    {
-      Image: cakeImage,
-      Title: ['케이크'],
-    },
-    {
-      Image: misikspotImage,
-      Title: ['미식스팟'],
-    },
-    {
-      Image: yearendReservationImage,
-      Title: ['연말예약'],
-    },
-    {
-      Image: groupReservationImage,
-      Title: ['모임예약'],
-    },
-    {
-      Image: wineDeliveryImage,
-      Title: ['와인배송'],
-    },
-    {
-      Image: MonthlyBestImage,
-      Title: ['이달의맛집'],
-    },
-    {
-      Image: mealKitImage,
-      Title: ['밀키트'],
-    },
-    {
-      Image: waitingTopImage,
-      Title: ['웨이팅TOP'],
-    },
-    {
-      Image: omakaseImage,
-      Title: ['오마카세'],
-    },
-    {
-      Image: umakaseImage,
-      Title: ['우마카세'],
-    },
-    {
-      Image: hotelDiningImage,
-      Title: ['호텔다이닝'],
-    },
-    {
-      Image: saveTopImage,
-      Title: ['저장TOP'],
-    },
-  
-  ]
-  
-  export const locArrData = [
-    {
-      imgUrl: apgujeongImage,
-      locArr: ['압구정', '청담'],
-    },
-    {
-      imgUrl: itaewonImage,
-      locArr: ['이태원', '한남'],
-    },
-    {
-      imgUrl: busanImage,
-      locArr: ['부산'],
-    },
-    {
-      imgUrl: sungsooImage,
-      locArr: ['성수'],
-    },
-    {
-      imgUrl: gwanghwamunImage,
-      locArr: ['광화문', '종로'],
-    },
-    {
-      imgUrl: jejuImage,
-      locArr: ['제주'],
-    },
-    {
-      imgUrl: daeguImage,
-      locArr: ['진주'],
-    },
-    {
-      imgUrl: apgujeongImage,
-      locArr: ['울산'],
-    },
-    {
-      imgUrl: itaewonImage,
-      locArr: ['광주'],
-    },
-    {
-      imgUrl: sungsooImage,
-      locArr: ['전주'],
-    },
-    {
-      imgUrl: jejuImage,
-      locArr: ['대전'],
-    },
-    {
-      imgUrl: busanImage,
-      locArr: ['군산'],
-    },
-  ];
-  
-  export const carouselData = [
-    carousel1Image,
-    carousel2Image,
-    carousel3Image,
-    carousel4Image,
-    carousel5Image,
-    carousel6Image,
-    carousel7Image,
-    carousel8Image,
-  ]
-  
-  export const hotPlaceArrData = [
-    {
-      ID: 1,
-      Picture: restaurant1Image,
-      Name: ['고에몬 홍대AK점'],
-      Rate: 3.8,
-      Type: ['일식 파스타'],
-      Loc: ['홍대'],
-    },
-    {
-      ID: 2,
-      Picture: restaurant2Image,
-      Name: ['타코튜즈데이'],
-      Rate: 4.5,
-      Type: ['멕시코음식'],
-      Loc: ['성수'],
-    },
-    {
-      ID: 3,
-      Picture: restaurant3Image,
-      Name: ['맛집막국수'],
-      Rate: 4.3,
-      Type: ['국수,냉면'],
-      Loc: ['안성'],
-    },
-    {
-      ID: 4,
-      Picture: restaurant4Image,
-      Name: ['이재모피자 본점'],
-      Rate: 4.5,
-      Type: ['피자'],
-      Loc: ['부산 남포동'],
-    },
-    {
-      ID: 5,
-      Picture: restaurant5Image,
-      Name: ['태닝돈'],
-      Rate: 4.3,
-      Type: ['돼지고기'],
-      Loc: ['부산 광안리'],
-    },
-  ]
+  {
+    Image: best23Image,
+    Title: ['23년베스트'],
+  },
+  {
+    Image: onlinewaitingImage,
+    Title: ['온라인웨이팅'],
+  },
+  {
+    Image: hiddenplaceImage,
+    Title: ['히든플레이스'],
+  },
+  {
+    Image: cakeImage,
+    Title: ['케이크'],
+  },
+  {
+    Image: misikspotImage,
+    Title: ['미식스팟'],
+  },
+  {
+    Image: yearendReservationImage,
+    Title: ['연말예약'],
+  },
+  {
+    Image: groupReservationImage,
+    Title: ['모임예약'],
+  },
+  {
+    Image: wineDeliveryImage,
+    Title: ['와인배송'],
+  },
+  {
+    Image: MonthlyBestImage,
+    Title: ['이달의맛집'],
+  },
+  {
+    Image: mealKitImage,
+    Title: ['밀키트'],
+  },
+  {
+    Image: waitingTopImage,
+    Title: ['웨이팅TOP'],
+  },
+  {
+    Image: omakaseImage,
+    Title: ['오마카세'],
+  },
+  {
+    Image: umakaseImage,
+    Title: ['우마카세'],
+  },
+  {
+    Image: hotelDiningImage,
+    Title: ['호텔다이닝'],
+  },
+  {
+    Image: saveTopImage,
+    Title: ['저장TOP'],
+  },
+];
 
-  export const bottomData = [
-    homeImage, 
-    searchImage,
-    messageImage, 
-    calendarImage, 
-    peopleImage,
-  ]
-  
-  
+export const locArrData = [
+  {
+    imgUrl: apgujeongImage,
+    locArr: ['압구정', '청담'],
+  },
+  {
+    imgUrl: itaewonImage,
+    locArr: ['이태원', '한남'],
+  },
+  {
+    imgUrl: busanImage,
+    locArr: ['부산'],
+  },
+  {
+    imgUrl: sungsooImage,
+    locArr: ['성수'],
+  },
+  {
+    imgUrl: gwanghwamunImage,
+    locArr: ['광화문', '종로'],
+  },
+  {
+    imgUrl: jejuImage,
+    locArr: ['제주'],
+  },
+  {
+    imgUrl: daeguImage,
+    locArr: ['진주'],
+  },
+  {
+    imgUrl: apgujeongImage,
+    locArr: ['울산'],
+  },
+  {
+    imgUrl: itaewonImage,
+    locArr: ['광주'],
+  },
+  {
+    imgUrl: sungsooImage,
+    locArr: ['전주'],
+  },
+  {
+    imgUrl: jejuImage,
+    locArr: ['대전'],
+  },
+  {
+    imgUrl: busanImage,
+    locArr: ['군산'],
+  },
+];
+
+export const carouselData = [
+  carousel1Image,
+  carousel2Image,
+  carousel3Image,
+  carousel4Image,
+  carousel5Image,
+  carousel6Image,
+  carousel7Image,
+  carousel8Image,
+];
+
+export const hotPlaceArrData = [
+  {
+    ID: 1,
+    Picture: restaurant1Image,
+    Name: ['고에몬 홍대AK점'],
+    Rate: 3.8,
+    Type: ['일식 파스타'],
+    Loc: ['홍대'],
+  },
+  {
+    ID: 2,
+    Picture: restaurant2Image,
+    Name: ['타코튜즈데이'],
+    Rate: 4.5,
+    Type: ['멕시코음식'],
+    Loc: ['성수'],
+  },
+  {
+    ID: 3,
+    Picture: restaurant3Image,
+    Name: ['맛집막국수'],
+    Rate: 4.3,
+    Type: ['국수,냉면'],
+    Loc: ['안성'],
+  },
+  {
+    ID: 4,
+    Picture: restaurant4Image,
+    Name: ['이재모피자 본점'],
+    Rate: 4.5,
+    Type: ['피자'],
+    Loc: ['부산 남포동'],
+  },
+  {
+    ID: 5,
+    Picture: restaurant5Image,
+    Name: ['태닝돈'],
+    Rate: 4.3,
+    Type: ['돼지고기'],
+    Loc: ['부산 광안리'],
+  },
+];
+
+export const bottomData = [
+  homeImage,
+  searchImage,
+  messageImage,
+  calendarImage,
+  peopleImage,
+];
