@@ -158,7 +158,10 @@ export default function Home() {
                 imageurl={value}
                 alt=' '
                 onClick={() => {
-                  if (index === 4) setUserId(null);
+                  if (window.confirm('정말 로그아웃하시겠습니까?')) {
+                    localStorage.setItem('userId', null);
+                    if (index === 4) setUserId(null);
+                  }
                 }}
               />
             );

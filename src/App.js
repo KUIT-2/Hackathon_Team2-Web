@@ -7,6 +7,7 @@ function App() {
   const setUserId = useStore((state) => state.setUserId);
   useEffect(() => {
     const id = localStorage.getItem('userId');
+    console.log(id);
     setUserId(id);
   }, []);
   return (
