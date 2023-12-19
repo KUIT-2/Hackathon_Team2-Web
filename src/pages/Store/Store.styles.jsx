@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const MenuComponent = styled.div`
   display: flex;
@@ -30,8 +30,9 @@ export const Header = styled.header`
   position: fixed;
   display: flex;
   flex-direction: row;
+  background-color: ${(state) => (state.scrollactive ? 'white' : 'none')};
   justify-content: space-between;
-  padding: 20px 24px;
+  padding: 12px 24px;
   z-index: 2;
 `;
 export const HeaderBtns = styled.div`
@@ -47,8 +48,11 @@ export const IconBtn = styled.button`
 export const Icon = styled.img`
   width: 32px;
   height: 32px;
-  filter: invert(100%) sepia(0%) saturate(7494%) hue-rotate(42deg)
-    brightness(101%) contrast(99%);
+
+  filter: ${(state) =>
+    state.scrollactive
+      ? 'invert(0%) sepia(0%) saturate(0%) hue-rotate(345deg) brightness(105%) contrast(102%)'
+      : 'invert(100%) sepia(0%) saturate(7494%) hue-rotate(42deg) brightness(101%) contrast(99%)'};
 `;
 export const BookMarkIcon = styled(Icon)`
   width: 45px;
@@ -213,10 +217,10 @@ export const CategoryBtn = styled.button`
   border: none;
   font-size: 16px;
   font-style: normal;
-  font-weight: ${(props) => (props.selected ? "600" : "500")};
+  font-weight: ${(props) => (props.selected ? '600' : '500')};
   border-bottom: 2px solid
-    ${(props) => (props.selected ? "black" : "lightgray")};
-  color: ${(props) => (props.selected ? "black" : "#949494")};
+    ${(props) => (props.selected ? 'black' : 'lightgray')};
+  color: ${(props) => (props.selected ? 'black' : '#949494')};
 `;
 
 export const HomeSect = styled.section`
