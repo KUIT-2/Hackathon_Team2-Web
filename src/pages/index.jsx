@@ -46,9 +46,12 @@ const Router = () => {
               path: 'check',
               element: <ReservationFinalCheck />,
             },
-            {
-              path: 'complete',
-              element: <ReservationComplete />,
+            
+                {
+                  path: 'complete',
+                  element: <ReservationComplete />,
+                },
+              ],
             },
           ],
         },
