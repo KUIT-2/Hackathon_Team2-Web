@@ -7,6 +7,8 @@ import {
   CheckHeaderText,
   CheckHeading2,
   CheckInformItem,
+  CheckInformItemIcon,
+  CheckInformItemText,
   CheckInformSec,
   CheckMain,
   CheckMainSec,
@@ -17,10 +19,11 @@ import {
   CheckStoreHeading2,
 } from './ReservationInformCheck.styles';
 import peopleImg from '../../assets/people-new.svg';
+import calendarImg from '../../assets/calendar.svg';
 
 export default function ReservationInformCheck() {
   return (
-    <BottomSheet heightPer={60}>
+    <BottomSheet heightPer={70}>
       <CheckHeader>
         <CheckHeaderText>내일 방문이 맞으신가요?</CheckHeaderText>
       </CheckHeader>
@@ -33,16 +36,16 @@ export default function ReservationInformCheck() {
           </CheckMainTitleSec>
           <CheckInformSec>
             <CheckInformItem>
-              <img src={peopleImg} alt='' />
-              <h3>1.06(금)</h3>
+              <CheckInformItemIcon src={calendarImg} alt='' />
+              <CheckInformItemText>1.06(금)</CheckInformItemText>
             </CheckInformItem>
             <CheckInformItem>
-              <img src={peopleImg} alt='' />
-              <h3>오후 6:30</h3>
+              <CheckInformItemIcon src={peopleImg} alt='' />
+              <CheckInformItemText>오후 6:30</CheckInformItemText>
             </CheckInformItem>
             <CheckInformItem>
-              <img src={peopleImg} alt='' />
-              <h3>2명</h3>
+              <CheckInformItemIcon src={peopleImg} alt='' />
+              <CheckInformItemText>2명</CheckInformItemText>
             </CheckInformItem>
           </CheckInformSec>
         </CheckMainSec>
@@ -54,8 +57,12 @@ export default function ReservationInformCheck() {
         </CheckNotifySect>
       </CheckMain>
       <CheckFooter>
-        <CheckFooterBtn bgcolor='white'>취소</CheckFooterBtn>
-        <CheckFooterBtn bgcolor='#D9D9D9'>확인</CheckFooterBtn>
+        <CheckFooterBtn textcolor='black' bgcolor='white'>
+          취소
+        </CheckFooterBtn>
+        <CheckFooterBtn textcolor='white' bgcolor='#EB4F27'>
+          확인
+        </CheckFooterBtn>
       </CheckFooter>
     </BottomSheet>
   );

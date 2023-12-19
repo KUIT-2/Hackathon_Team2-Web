@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const CheckHeader = styled.header`
   padding: 20px 21px;
   padding-bottom: 12px;
-  border-bottom: 2px solid lightgray;
+  border-bottom: 3px solid #eb4f27;
 `;
 export const CheckHeaderText = styled.h1`
   font-size: 16px;
@@ -42,6 +42,7 @@ export const CheckMainSec = styled.section`
   border: 1px solid lightgray;
   display: flex;
   flex-direction: column;
+  gap: 24px;
   align-items: center;
 `;
 export const CheckMainTitleSec = styled.section`
@@ -62,6 +63,15 @@ export const CheckInformItem = styled.div`
   flex-direction: column;
   align-items: center;
 `;
+export const CheckInformItemIcon = styled.img`
+  width: 40px;
+  height: 40px;
+`;
+export const CheckInformItemText = styled.h3`
+  font-size: 14px;
+  font-weight: 500;
+  color: black;
+`;
 
 export const CheckNotifyText = styled.h2`
   color: #6b6b6b;
@@ -75,13 +85,20 @@ export const CheckNotifySect = styled.section`
 export const CheckFooterBtn = styled.button`
   border: 1px solid #c1c1c1;
   background-color: ${(props) => props.bgcolor};
+  color: ${(props) => props.textcolor};
   font-size: 14px;
   font-weight: 600;
   padding: 13px 57px;
-  color: black;
+  border-radius: 8px;
 `;
 export const CheckFooter = styled.footer`
   display: flex;
+  position: fixed;
+  padding-bottom: 24px;
+  background-color: white;
+  padding-top: 8px;
+  bottom: 0;
+  width: 100%;
   flex-direction: row;
   gap: 16px;
   justify-content: center;
