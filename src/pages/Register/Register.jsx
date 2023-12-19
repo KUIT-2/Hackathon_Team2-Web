@@ -29,7 +29,7 @@ export default function Register() {
         <S.companyName>CatchTable</S.companyName>
         <S.inputName
           name="username"
-          value={newMember.name}
+          value={newMember.username}
           onChange={handleChange}
           placeholder="이름을 입력하세요."
         />
