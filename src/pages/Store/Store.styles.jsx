@@ -76,7 +76,7 @@ export const DescriptionSect = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
-  padding: 24px 20px;
+  padding: 12px 20px 24px 20px;
   border-bottom: solid 9px #efefef;
 `;
 
@@ -126,12 +126,13 @@ export const PickHeader3 = styled.h3`
   font-weight: 600;
 `;
 export const PickBtn = styled.button`
-  background-color: #d9d9d9;
+  background-color: white;
   color: black;
   padding: 7px 11px;
   font-size: 12px;
   font-weight: 500;
   border: none;
+  border: 1px solid gray;
   border-radius: 24px;
 `;
 export const Footer = styled.footer`
@@ -141,11 +142,11 @@ export const Footer = styled.footer`
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 14px 20px;
+  padding: 14px 20px 14px 8px;
   background-color: white;
   border-top: 2px lightgray solid;
   z-index: 3;
-  gap: 20px;
+  gap: 10px;
 `;
 export const BookMarkBtn = styled.button`
   display: flex;
@@ -158,8 +159,8 @@ export const BookMarkBtnText = styled.p`
   margin: 0px;
 `;
 export const BookMarkBtnImg = styled.img`
-  width: 42px;
-  height: 42px;
+  width: 50px;
+  height: 50px;
 `;
 export const ReserveBtn = styled.button`
   flex: 1;
