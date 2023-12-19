@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import { Outlet, useNavigate } from "react-router";
-import backImg from "../../assets/back.svg";
-import homeImg from "../../assets/home.svg";
-import shareImg from "../../assets/share.svg";
-import locationImg from "../../assets/location.svg";
-import storeImg from "../../assets/ee45b3f0f27249b3821ff044e4a5ffdd.jpeg";
-import store2Img from "../../assets/f4cc8e02-8067-4b31-bfd0-8873981cbfc4.png";
-import bookMarkImg from "../../assets/bookmark.svg";
+import React, { useState } from 'react';
+import { Outlet, useNavigate } from 'react-router';
+import backImg from '../../assets/back.svg';
+import homeImg from '../../assets/home.svg';
+import shareImg from '../../assets/share.svg';
+import locationImg from '../../assets/location.svg';
+import storeImg from '../../assets/ee45b3f0f27249b3821ff044e4a5ffdd.jpeg';
+import store2Img from '../../assets/f4cc8e02-8067-4b31-bfd0-8873981cbfc4.png';
+import bookMarkImg from '../../assets/bookmark.svg';
 import {
   BookMarkBtn,
   BookMarkBtnImg,
@@ -37,11 +37,20 @@ import {
   StoreImgNum,
   StoreImgNumSect,
   StoreImgSect,
-} from "./Store.styles";
+} from './Store.styles';
 
 export default function Store() {
-  const [selectedCategory, setSelectedCategory] = useState("홈");
+  const [selectedCategory, setSelectedCategory] = useState('홈');
   const [imageArr, setImageArr] = useState([storeImg, store2Img]);
+  const [storeInform, setStoreInform] = useState({
+    name: '센시티브서울',
+    description: '감각적인 이탈리안 레스토랑',
+    category: '이탈리아음식',
+    location: '한남동',
+    rate: 4.3,
+    reviewNum: 333,
+    pictureNum: 18,
+  });
   const [imageIndex, setImageIndex] = useState(0);
   const navigate = useNavigate();
   const nextHandler = () => {
@@ -67,18 +76,18 @@ export default function Store() {
       <Header>
         <HeaderBtns>
           <IconBtn onClick={() => navigate(-1)}>
-            <Icon src={backImg} alt="" />
+            <Icon src={backImg} alt='' />
           </IconBtn>
-          <IconBtn onClick={() => navigate("/")}>
-            <Icon src={homeImg} alt="" />
+          <IconBtn onClick={() => navigate('/')}>
+            <Icon src={homeImg} alt='' />
           </IconBtn>
         </HeaderBtns>
         <HeaderBtns>
           <IconBtn onClick={nextHandler}>
-            <BookMarkIcon src={bookMarkImg} alt="" />
+            <BookMarkIcon src={bookMarkImg} alt='' />
           </IconBtn>
           <IconBtn>
-            <Icon src={shareImg} alt="" />
+            <Icon src={shareImg} alt='' />
           </IconBtn>
         </HeaderBtns>
       </Header>
@@ -88,7 +97,7 @@ export default function Store() {
           <CaeraselWrapper imageindex={imageIndex}>
             {imageArr.map((image, index) => (
               <CaeraselItemWrapper key={index}>
-                <img src={image} alt="" />
+                <img src={image} alt='' />
               </CaeraselItemWrapper>
             ))}
           </CaeraselWrapper>
@@ -99,12 +108,16 @@ export default function Store() {
           </StoreImgNumSect>
         </StoreImgSect>
         <DescriptionSect>
-          <Header1>음식점 이름</Header1>
-          <Header2>음식점 소개</Header2>
-          <Header3>음식 종류,지역</Header3>
-          <Header3>☆ X.X (XX)</Header3>
+          <Header1>{storeInform.name}</Header1>
+          <Header2>{storeInform.description}</Header2>
+          <Header3>
+            {storeInform.category},{storeInform.location}
+          </Header3>
+          <Header3>
+            ☆ {storeInform.rate} ({storeInform.reviewNum})
+          </Header3>
           <MapBtn>
-            <MapIcon src={locationImg} alt="" />
+            <MapIcon src={locationImg} alt='' />
           </MapBtn>
         </DescriptionSect>
         <PickSect>
@@ -114,38 +127,37 @@ export default function Store() {
         <CategoryDescription>
           <CategoryBar>
             <CategoryBtn
-              onClick={() => setSelectedCategory("홈")}
-              selected={selectedCategory === "홈"}
+              onClick={() => setSelectedCategory('홈')}
+              selected={selectedCategory === '홈'}
             >
               홈
             </CategoryBtn>
             <CategoryBtn
-              onClick={() => setSelectedCategory("메뉴")}
-              selected={selectedCategory === "메뉴"}
+              onClick={() => setSelectedCategory('메뉴')}
+              selected={selectedCategory === '메뉴'}
             >
               메뉴
             </CategoryBtn>
             <CategoryBtn
-              onClick={() => setSelectedCategory("사진")}
-              selected={selectedCategory === "사진"}
+              onClick={() => setSelectedCategory('사진')}
+              selected={selectedCategory === '사진'}
             >
-              사진(10)
+              사진({storeInform.pictureNum})
             </CategoryBtn>
             <CategoryBtn
-              onClick={() => setSelectedCategory("리뷰")}
-              selected={selectedCategory === "리뷰"}
+              onClick={() => setSelectedCategory('리뷰')}
+              selected={selectedCategory === '리뷰'}
             >
-              리뷰(25)
+              리뷰({storeInform.reviewNum})
             </CategoryBtn>
           </CategoryBar>
         </CategoryDescription>
       </Main>
       <Footer>
         <BookMarkBtn>
-          <BookMarkBtnImg src={bookMarkImg} alt="" />
-          <BookMarkBtnText>563</BookMarkBtnText>
+          <BookMarkBtnImg src={bookMarkImg} alt='' />
         </BookMarkBtn>
-        <ReserveBtn onClick={() => navigate("reservation1")}>
+        <ReserveBtn onClick={() => navigate('reservation1')}>
           예약하기
         </ReserveBtn>
       </Footer>
