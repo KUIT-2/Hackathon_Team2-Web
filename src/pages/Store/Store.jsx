@@ -118,10 +118,10 @@ const reviewArrData = [
 ];
 
 const menuArrData = [
-  { menuname: 'Item 1', price: 12000 },
-  { menuname: 'Item 2', price: 8000 },
-  { menuname: 'Item 3', price: 10000 },
-  { menuname: 'Item 4', price: 20000 },
+  { menuName: 'Item 1', price: 12000 },
+  { menuName: 'Item 2', price: 8000 },
+  { menuName: 'Item 3', price: 10000 },
+  { menuName: 'Item 4', price: 20000 },
 ];
 
 export default function Store() {
@@ -144,6 +144,33 @@ export default function Store() {
       }
     });
   };
+  useEffect(() => {
+    if (selectedCategory === '리뷰') {
+      fetch(`http://192.168.104.65:8080/store/review/${storeId}`)
+        .then((data) => data.json())
+        .then((response) => {
+          console.log(response);
+          if (response.result && response.result.length > 0) {
+            setReviewArr(response.result);
+          } else {
+            setReviewArr([]);
+          }
+        })
+        .catch((error) => console.error(error));
+    } else if (selectedCategory === '메뉴') {
+      fetch(`http://192.168.104.65:8080/store/menu/${storeId}`)
+        .then((data) => data.json())
+        .then((response) => {
+          console.log(response);
+          if (response.result && response.result.length > 0) {
+            setMenuArr(response.result);
+          } else {
+            setMenuArr([]);
+          }
+        })
+        .catch((error) => console.error(error));
+    }
+  }, [selectedCategory]);
   useEffect(() => {
     if (storeInform) {
       setReservationStore(storeInform);
@@ -226,7 +253,7 @@ export default function Store() {
             {storeInform.category},{storeInform.location}
           </Header3>
           <Header3>
-            ☆ {storeInform.rate} ({storeInform.reviewNum})
+            ☆ {Math.floor(storeInform.rate * 10) / 10} ({storeInform.reviewNum})
           </Header3>
           <MapBtn>
             <MapIcon src={locationImg} alt='' />
@@ -271,7 +298,7 @@ export default function Store() {
               <MenuArr>
                 {menuArr.map((menuArr, index) => (
                   <MenuComponent key={index}>
-                    <div>{menuArr.menuname}</div>
+                    <div>{menuArr.menuName}</div>
                     <div>{menuArr.price}원</div>
                   </MenuComponent>
                 ))}
@@ -303,8 +330,8 @@ export default function Store() {
           )}
           {selectedCategory === '리뷰' && (
             <ReviewSec>
-              {reviewArr.map((review) => (
-                <ReviewDivWrapper key={review.createAt}>
+              {reviewArr.map((review, index) => (
+                <ReviewDivWrapper key={review.createAt + index}>
                   <ReviewUserDiv>
                     <ReviewUserImg src={peopleImg} alt='' />
                     <ReviewUserText>{review.userName}</ReviewUserText>
