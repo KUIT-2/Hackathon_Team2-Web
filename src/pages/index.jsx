@@ -4,8 +4,8 @@ import ReservationCalender from '../components/Reservation/ReservationCalender';
 import ReservationComplete from '../components/Reservation/ReservationComplete';
 import ReservationFinalCheck from '../components/Reservation/ReservationFinalCheck';
 import ReservationInformCheck from '../components/Reservation/ReservationInformCheck';
-import ReservationPayment from '../components/Reservation/ReservationPayment';
 import Home from './Home/Home';
+import Payment from './Payment/Payment';
 import Root from './Root/Root';
 import Search from './Search/Search';
 import Store from './Store/Store';
@@ -40,7 +40,7 @@ const Router = () => {
         },
         {
           path: 'payment',
-          element: <ReservationPayment />,
+          element: <Payment />,
           children: [
             {
               path: 'check',
