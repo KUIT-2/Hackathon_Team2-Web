@@ -145,10 +145,11 @@ export default function Store() {
           <BookMarkBtnImg src={bookMarkImg} alt='' />
           <BookMarkBtnText>563</BookMarkBtnText>
         </BookMarkBtn>
-        <ReserveBtn>예약하기</ReserveBtn>
+        <ReserveBtn onClick={() => navigate('reservation1')}>
+          예약하기
+        </ReserveBtn>
       </Footer>
       <Outlet />
     </>
-
   );
 }

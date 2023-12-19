@@ -20,8 +20,10 @@ import {
 } from './ReservationInformCheck.styles';
 import peopleImg from '../../assets/people-new.svg';
 import calendarImg from '../../assets/calendar.svg';
+import { useNavigate } from 'react-router';
 
 export default function ReservationInformCheck() {
+  const navigate = useNavigate();
   return (
     <BottomSheet heightPer={70}>
       <CheckHeader>
@@ -57,10 +59,18 @@ export default function ReservationInformCheck() {
         </CheckNotifySect>
       </CheckMain>
       <CheckFooter>
-        <CheckFooterBtn textcolor='black' bgcolor='white'>
+        <CheckFooterBtn
+          textcolor='black'
+          bgcolor='white'
+          onClick={() => navigate(-1)}
+        >
           취소
         </CheckFooterBtn>
-        <CheckFooterBtn textcolor='white' bgcolor='#EB4F27'>
+        <CheckFooterBtn
+          onClick={() => navigate('/payment')}
+          textcolor='white'
+          bgcolor='#EB4F27'
+        >
           확인
         </CheckFooterBtn>
       </CheckFooter>
