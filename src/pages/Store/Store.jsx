@@ -40,10 +40,26 @@ import {
   PictureImg,
   PictureSect,
   ReserveBtn,
+  ReviewDivWrapper,
+  ReviewImg,
+  ReviewImgDiv,
+  ReviewImgDivWrapper,
+  ReviewInformDateText,
+  ReviewInformRowDiv,
+  ReviewInformScoreDiv,
+  ReviewInformScoreImg,
+  ReviewInformScoreText,
+  ReviewMainDiv,
+  ReviewMainText,
+  ReviewSec,
+  ReviewUserDiv,
+  ReviewUserImg,
+  ReviewUserText,
   StoreImg,
   StoreImgNum,
   StoreImgNumSect,
   StoreImgSect,
+  StoreWrapper,
 } from './Store.styles';
 import calendarImg from '../../assets/calendar.svg';
 import arrowDownImg from '../../assets/arrow-down.svg';
@@ -52,6 +68,7 @@ import italianImg from '../../assets/_0004_italian.jpg';
 import japaneseImg from '../../assets/_0003_japanese.jpg';
 import frenchImg from '../../assets/_0002_french.jpg';
 import brunchImg from '../../assets/_0001_brunch.jpg';
+import peopleImg from '../../assets/people-new.svg';
 import { useStore } from '../../store/useStore';
 
 const storeInformData = {
@@ -153,7 +170,7 @@ export default function Store() {
     });
   };
   return (
-    <>
+    <StoreWrapper>
       <Header>
         <HeaderBtns>
           <IconBtn onClick={() => navigate(-1)}>
@@ -254,7 +271,37 @@ export default function Store() {
               <PictureImg src={italianImg} alt='' />
             </PictureSect>
           )}
-          {selectedCategory === '리뷰' && <div>리뷰</div>}
+          {selectedCategory === '리뷰' && (
+            <ReviewSec>
+              {reviewArr.map((review) => (
+                <ReviewDivWrapper key={review.createAt}>
+                  <ReviewUserDiv>
+                    <ReviewUserImg src={peopleImg} alt='' />
+                    <ReviewUserText>{review.userName}</ReviewUserText>
+                  </ReviewUserDiv>
+                  <ReviewInformRowDiv>
+                    <ReviewInformScoreDiv>
+                      <ReviewInformScoreText>
+                        ★ {Math.floor(review.avgScore * 10) / 10}
+                      </ReviewInformScoreText>
+                      <ReviewInformScoreImg src={arrowDownImg} alt='' />
+                    </ReviewInformScoreDiv>
+                    <ReviewInformDateText>2023.12.14</ReviewInformDateText>
+                  </ReviewInformRowDiv>
+                  <ReviewImgDivWrapper>
+                    <ReviewImgDiv>
+                      <ReviewImg src={pastaImg} alt='' />
+                      <ReviewImg src={italianImg} alt='' />
+                      <ReviewImg src={japaneseImg} alt='' />
+                    </ReviewImgDiv>
+                  </ReviewImgDivWrapper>
+                  <ReviewMainDiv>
+                    <ReviewMainText>{review.review}</ReviewMainText>
+                  </ReviewMainDiv>
+                </ReviewDivWrapper>
+              ))}
+            </ReviewSec>
+          )}
         </CategoryDescription>
       </Main>
       <Footer>
@@ -266,6 +313,6 @@ export default function Store() {
         </ReserveBtn>
       </Footer>
       <Outlet />
-    </>
+    </StoreWrapper>
   );
 }
