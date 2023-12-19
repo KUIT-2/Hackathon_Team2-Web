@@ -24,6 +24,11 @@ import {
   Header2,
   Header3,
   HeaderBtns,
+  HomeBtn,
+  HomeBtnDiv,
+  HomeBtnText,
+  HomeIcon,
+  HomeSect,
   Icon,
   IconBtn,
   Main,
@@ -32,17 +37,24 @@ import {
   PickBtn,
   PickHeader3,
   PickSect,
+  PictureImg,
+  PictureSect,
   ReserveBtn,
   StoreImg,
   StoreImgNum,
   StoreImgNumSect,
   StoreImgSect,
-  MenuText,
-  Line,
-  MenuArr,
-  MenuComponent,
-} from "./Store.styles";
-import { useStore } from "../../store/useStore";
+
+} from './Store.styles';
+import calendarImg from '../../assets/calendar.svg';
+import arrowDownImg from '../../assets/arrow-down.svg';
+import pastaImg from '../../assets/_0005_pasta.jpg';
+import italianImg from '../../assets/_0004_italian.jpg';
+import japaneseImg from '../../assets/_0003_japanese.jpg';
+import frenchImg from '../../assets/_0002_french.jpg';
+import brunchImg from '../../assets/_0001_brunch.jpg';
+import { useStore } from '../../store/useStore';
+
 
 const storeInformData = {
   name: "센시티브서울",
@@ -91,9 +103,12 @@ export default function Store() {
       fetch(`http://192.168.104.65:8080/store/detail/${storeId}`)
         .then((data) => data.json())
         .then((response) => {
-          if (!response.ok) {
-            throw new Error("network error 400 or 500");
-          }
+
+          // console.log(response);
+          // if (!response.ok) {
+          //   throw new Error('network error 400 or 500');
+          // }
+
           setStoreInform({
             name: response.result.storeName,
             description: response.result.storeDesc,
@@ -198,7 +213,7 @@ export default function Store() {
               리뷰({storeInform.reviewNum})
             </CategoryBtn>
           </CategoryBar>
-          {selectedCategory === "홈" && <div>홈</div>}
+
           {selectedCategory === "메뉴" && (
             <div>
               <MenuText>메뉴</MenuText>
@@ -213,8 +228,32 @@ export default function Store() {
               </MenuArr>
             </div>
           )}
-          {selectedCategory === "사진" && <div>사진</div>}
-          {selectedCategory === "리뷰" && <div>리뷰</div>}
+       
+
+          {selectedCategory === '홈' && (
+            <HomeSect>
+              <HomeBtn onClick={() => navigate('reservation1')}>
+                <HomeBtnDiv>
+                  <HomeIcon src={calendarImg} alt='' />
+                  <HomeBtnText>오늘(목) 2명</HomeBtnText>
+                </HomeBtnDiv>
+                <HomeIcon src={arrowDownImg} alt='' />
+              </HomeBtn>
+            </HomeSect>
+          )}
+         
+          {selectedCategory === '사진' && (
+            <PictureSect>
+              <PictureImg src={pastaImg} alt='' />
+              <PictureImg src={italianImg} alt='' />
+              <PictureImg src={japaneseImg} alt='' />
+              <PictureImg src={frenchImg} alt='' />
+              <PictureImg src={brunchImg} alt='' />
+              <PictureImg src={italianImg} alt='' />
+            </PictureSect>
+          )}
+          {selectedCategory === '리뷰' && <div>리뷰</div>}
+
         </CategoryDescription>
       </Main>
       <Footer>
