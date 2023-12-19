@@ -60,6 +60,10 @@ import {
   StoreImgNumSect,
   StoreImgSect,
   StoreWrapper,
+  Line,
+  MenuArr,
+  MenuComponent,
+  MenuText,
 } from './Store.styles';
 import calendarImg from '../../assets/calendar.svg';
 import arrowDownImg from '../../assets/arrow-down.svg';
@@ -113,6 +117,13 @@ const reviewArrData = [
   },
 ];
 
+const menuArrData = [
+  { menuname: 'Item 1', price: 12000 },
+  { menuname: 'Item 2', price: 8000 },
+  { menuname: 'Item 3', price: 10000 },
+  { menuname: 'Item 4', price: 20000 },
+];
+
 export default function Store() {
   const [selectedCategory, setSelectedCategory] = useState('홈');
   const [imageArr, setImageArr] = useState([storeImg, store2Img]);
@@ -122,6 +133,8 @@ export default function Store() {
   const { storeId } = useParams();
   const setReservationStore = useStore((state) => state.setReservationStore);
   const navigate = useNavigate();
+  const [menuArr, setMenuArr] = useState(menuArrData);
+
   const nextHandler = () => {
     setImageIndex(() => {
       if (imageIndex === imageArr.length - 1) {
@@ -145,6 +158,7 @@ export default function Store() {
           // if (!response.ok) {
           //   throw new Error('network error 400 or 500');
           // }
+
           setStoreInform({
             name: response.result.storeName,
             description: response.result.storeDesc,
@@ -249,6 +263,22 @@ export default function Store() {
               리뷰({storeInform.reviewNum})
             </CategoryBtn>
           </CategoryBar>
+
+          {selectedCategory === '메뉴' && (
+            <div>
+              <MenuText>메뉴</MenuText>
+              <Line />
+              <MenuArr>
+                {menuArr.map((menuArr, index) => (
+                  <MenuComponent key={index}>
+                    <div>{menuArr.menuname}</div>
+                    <div>{menuArr.price}원</div>
+                  </MenuComponent>
+                ))}
+              </MenuArr>
+            </div>
+          )}
+
           {selectedCategory === '홈' && (
             <HomeSect>
               <HomeBtn onClick={() => navigate('reservation1')}>
@@ -260,7 +290,7 @@ export default function Store() {
               </HomeBtn>
             </HomeSect>
           )}
-          {selectedCategory === '메뉴' && <div>메뉴</div>}
+
           {selectedCategory === '사진' && (
             <PictureSect>
               <PictureImg src={pastaImg} alt='' />
