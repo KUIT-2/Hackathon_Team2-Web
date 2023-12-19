@@ -5,7 +5,7 @@ import * as S from './Home.Styles';
 import '../.././../node_modules/slick-carousel/slick/slick-theme.css';
 import '../.././../node_modules/slick-carousel/slick/slick.css';
 
-import { useNavigate } from 'react-router';
+import { Navigate, useNavigate } from 'react-router';
 import Splash from '../../components/Splash/Splash';
 import {
   MenuData,
@@ -14,9 +14,12 @@ import {
   hotPlaceArrData,
   locArrData,
 } from './Homedata';
+import { useStore } from '../../store/useStore';
 
 export default function Home() {
   const navigate = useNavigate();
+  const userId = useStore((state) => state.userId);
+  const setUserId = useStore((state) => state.setUserId);
   const [hotPlaceDataArr, setHotPlaceDataArr] = useState(hotPlaceArrData);
   const [isLoading, setIsLoading] = useState(true);
   const settings = {
@@ -64,6 +67,9 @@ export default function Home() {
   console.log(hotPlaceDataArr);
   if (isLoading) {
     return <Splash />;
+  }
+  if (!userId) {
+    return <Navigate to={'login'} />;
   }
   return (
     <S.wrapAll>
@@ -146,8 +152,19 @@ export default function Home() {
 
       <S.wrapBottom>
         <S.bottomGrid>
-          {bottomData.map((value) => {
-            return <S.bottomPicture imageurl={value} alt=' ' />;
+          {bottomData.map((value, index) => {
+            return (
+              <S.bottomPicture
+                imageurl={value}
+                alt=' '
+                onClick={() => {
+                  if (window.confirm('정말 로그아웃하시겠습니까?')) {
+                    localStorage.removeItem('userId');
+                    if (index === 4) setUserId(null);
+                  }
+                }}
+              />
+            );
           })}
         </S.bottomGrid>
       </S.wrapBottom>

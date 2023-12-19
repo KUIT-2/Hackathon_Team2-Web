@@ -135,6 +135,27 @@ export default function Store() {
   const navigate = useNavigate();
   const [menuArr, setMenuArr] = useState(menuArrData);
 
+  const [ScrollY, setScrollY] = useState(0); // window 의 pageYOffset값을 저장
+  const [ScrollActive, setScrollActive] = useState(false);
+  function handleScroll() {
+    if (ScrollY > 199) {
+      setScrollY(window.pageYOffset);
+      setScrollActive(true);
+    } else {
+      setScrollY(window.pageYOffset);
+      setScrollActive(false);
+    }
+  }
+  useEffect(() => {
+    function scrollListener() {
+      window.addEventListener('scroll', handleScroll);
+    } //  window 에서 스크롤을 감시 시작
+    scrollListener(); // window 에서 스크롤을 감시
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    }; //  window 에서 스크롤을 감시를 종료
+  });
+
   const nextHandler = () => {
     setImageIndex(() => {
       if (imageIndex === imageArr.length - 1) {
@@ -212,21 +233,25 @@ export default function Store() {
   };
   return (
     <StoreWrapper>
-      <Header>
+      <Header scrollactive={ScrollActive}>
         <HeaderBtns>
           <IconBtn onClick={() => navigate(-1)}>
-            <Icon src={backImg} alt='' />
+            <Icon scrollactive={ScrollActive} src={backImg} alt='' />
           </IconBtn>
           <IconBtn onClick={() => navigate('/')}>
-            <Icon src={homeImg} alt='' />
+            <Icon scrollactive={ScrollActive} src={homeImg} alt='' />
           </IconBtn>
         </HeaderBtns>
         <HeaderBtns>
           <IconBtn onClick={nextHandler}>
-            <BookMarkIcon src={bookMarkImg} alt='' />
+            <BookMarkIcon
+              scrollactive={ScrollActive}
+              src={bookMarkImg}
+              alt=''
+            />
           </IconBtn>
           <IconBtn>
-            <Icon src={shareImg} alt='' />
+            <Icon scrollactive={ScrollActive} src={shareImg} alt='' />
           </IconBtn>
         </HeaderBtns>
       </Header>

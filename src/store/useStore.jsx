@@ -60,6 +60,6 @@ export const useStore = create((set) => ({
       }
       return { reservation: { ...state.reservation, peopleNum } };
     }),
-  user: null,
-  setUser: (userData) => set(() => ({ user: userData })),
+  userId: null,
+  setUserId: (id) => set(() => ({ userId: id })),
 }));
