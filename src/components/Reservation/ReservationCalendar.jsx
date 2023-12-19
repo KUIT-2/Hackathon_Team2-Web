@@ -78,7 +78,7 @@ const ReservationCalender = () => {
                 onClick={() => {
                   handleTimeButton(hour);
                   setReservationDate(value);
-                  navigate('/store/2/reservation2');
+                  navigate(`/store/${reservationData.store.id}/reservation2`);
                 }}
               >
                 {hour}시
