@@ -7,23 +7,35 @@ import { useNavigate } from "react-router";
 import * as S from "./ReservationCalendar.styles";
 
 const ReservationCalender = () => {
-  const [value, onChange] = useState(new Date());
-  const [selectedButtonIndex, setSelectedButtonIndex] = useState(1);
+  const [value, setValue] = useState(new Date());
+  const [peopleNum, setpeopleNum] = useState(1);
+  const [timeValue, setTimeValue] = useState();
+
   const navigate = useNavigate();
-  const handleButtonClick = (index) => {
-    setSelectedButtonIndex(index);
+
+  const handlePeopleButton = (index) => {
+    const peopleCount = index + 1;
+    setpeopleNum(peopleCount);
   };
+
   const TodayButtonClick = () => {
     const today = new Date();
-    onChange(today);
+    setValue(today);
   };
+  const handleCalendarChange = (value, event) => {
+    setValue(value);
+  };
+  const handleTimeButton = (hour) => {
+    setTimeValue(hour);
+  };
+
   return (
     <BottomSheet heightPer={85}>
       <S.ReservationContainer>
         <S.Reservation>
           <S.TodayButton onClick={() => TodayButtonClick()}>오늘</S.TodayButton>
           <Calendar
-            onChange={onChange}
+            onChange={handleCalendarChange}
             value={value}
             next2Label={null}
             prev2Label={null}
@@ -32,11 +44,11 @@ const ReservationCalender = () => {
           <S.Line />
           <S.ReservationPeopleContainer>
             <S.ReservationPeople>
-              {[...Array(10)].map((_, index) => (
+              {[...Array(20)].map((_, index) => (
                 <S.PeopleButton
                   key={index}
-                  onClick={() => handleButtonClick(index)}
-                  isActive={selectedButtonIndex === index}
+                  onClick={() => handlePeopleButton(index)}
+                  isActive={peopleNum === index + 1}
                 >
                   {index + 1}명
                 </S.PeopleButton>
@@ -44,7 +56,11 @@ const ReservationCalender = () => {
             </S.ReservationPeople>
           </S.ReservationPeopleContainer>
           <S.ReservationTime onClick={() => navigate("/store/2/reservation2")}>
-            <S.TimeButton>오후 x:xx</S.TimeButton>
+            {[17, 18, 19, 20].map((hour) => (
+              <S.TimeButton key={hour} onClick={() => handleTimeButton(hour)}>
+                {hour}시
+              </S.TimeButton>
+            ))}
           </S.ReservationTime>
           <S.CloseButton onClick={() => navigate(-1)}>닫기</S.CloseButton>
         </S.Reservation>
