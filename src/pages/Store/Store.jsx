@@ -185,6 +185,10 @@ export default function Store() {
               리뷰({storeInform.reviewNum})
             </CategoryBtn>
           </CategoryBar>
+          {selectedCategory === '홈' && <div>홈</div>}
+          {selectedCategory === '메뉴' && <div>메뉴</div>}
+          {selectedCategory === '사진' && <div>사진</div>}
+          {selectedCategory === '리뷰' && <div>리뷰</div>}
         </CategoryDescription>
       </Main>
       <Footer>
