@@ -65,9 +65,41 @@ const storeInformData = {
   id: 1,
 };
 
+const reviewArrData = [
+  {
+    userName: '홍길동',
+    avgScore: 4.97822,
+    createAt: '2023-12-20 03:17:59',
+    reviewImage: 'https://example.com/reviewimage0.jpg',
+    review: 'Review 5',
+  },
+  {
+    userName: 'Name 7',
+    avgScore: 4.97822,
+    createAt: '2023-12-20 03:17:59',
+    reviewImage: 'https://example.com/reviewimage5.jpg',
+    review: 'Review 5',
+  },
+  {
+    userName: 'Name 7',
+    avgScore: 4.97822,
+    createAt: '2023-12-20 03:17:59',
+    reviewImage: 'https://example.com/reviewimage15.jpg',
+    review: 'Review 5',
+  },
+  {
+    userName: 'Name 7',
+    avgScore: 4.97822,
+    createAt: '2023-12-20 03:17:59',
+    reviewImage: 'https://example.com/reviewimage19.jpg',
+    review: 'Review 5',
+  },
+];
+
 export default function Store() {
   const [selectedCategory, setSelectedCategory] = useState('홈');
   const [imageArr, setImageArr] = useState([storeImg, store2Img]);
+  const [reviewArr, setReviewArr] = useState(reviewArrData);
   const [storeInform, setStoreInform] = useState(storeInformData);
   const [imageIndex, setImageIndex] = useState(0);
   const { storeId } = useParams();
