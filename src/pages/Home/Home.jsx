@@ -19,6 +19,7 @@ import { useStore } from '../../store/useStore';
 export default function Home() {
   const navigate = useNavigate();
   const userId = useStore((state) => state.userId);
+  const setUserId = useStore((state) => state.setUserId);
   const [hotPlaceDataArr, setHotPlaceDataArr] = useState(hotPlaceArrData);
   const [isLoading, setIsLoading] = useState(true);
   const settings = {
@@ -151,8 +152,16 @@ export default function Home() {
 
       <S.wrapBottom>
         <S.bottomGrid>
-          {bottomData.map((value) => {
-            return <S.bottomPicture imageurl={value} alt=' ' />;
+          {bottomData.map((value, index) => {
+            return (
+              <S.bottomPicture
+                imageurl={value}
+                alt=' '
+                onClick={() => {
+                  if (index === 4) setUserId(null);
+                }}
+              />
+            );
           })}
         </S.bottomGrid>
       </S.wrapBottom>

@@ -26,6 +26,7 @@ export default function Login() {
         />
         <S.inputPassword
           value={password}
+          type='password'
           onChange={(e) => setPassword(e.target.value)}
           placeholder='비밀번호를 입력하세요.'
         />
@@ -43,6 +44,7 @@ export default function Login() {
               .then((data) => {
                 if (data.result && data.result.userId) {
                   setUserId(data.result.userId);
+                  localStorage.setItem('userId', data.result.userId);
                 }
               })
               .catch((error) => console.error(error));
