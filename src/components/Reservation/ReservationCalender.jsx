@@ -1,13 +1,15 @@
-import React, { useState } from "react";
-import Calendar from "react-calendar";
-import "./ReservationCalendar.css";
-import styled from "styled-components";
-import moment from "moment";
-import BottomSheet from "../BottomSheet/BottomSheet";
+import React, { useState } from 'react';
+import Calendar from 'react-calendar';
+import './ReservationCalendar.css';
+import styled from 'styled-components';
+import moment from 'moment';
+import BottomSheet from '../BottomSheet/BottomSheet';
+import { useNavigate } from 'react-router';
 
 const ReservationCalender = () => {
   const [value, onChange] = useState(new Date());
   const [selectedButtonIndex, setSelectedButtonIndex] = useState(1);
+  const navigate = useNavigate();
   const handleButtonClick = (index) => {
     setSelectedButtonIndex(index);
   };
@@ -27,7 +29,7 @@ const ReservationCalender = () => {
             value={value}
             next2Label={null}
             prev2Label={null}
-            formatDay={(loacle, date) => moment(date).format("D")}
+            formatDay={(loacle, date) => moment(date).format('D')}
           />
           <Line></Line>
           <ReservationPeopleContainer>
@@ -43,10 +45,10 @@ const ReservationCalender = () => {
               ))}
             </ReservationPeople>
           </ReservationPeopleContainer>
-          <ReservationTime>
+          <ReservationTime onClick={() => navigate('/store/2/reservation2')}>
             <TimeButton>오후 x:xx</TimeButton>
           </ReservationTime>
-          <CloseButton>닫기</CloseButton>
+          <CloseButton onClick={() => navigate(-1)}>닫기</CloseButton>
         </Reservation>
       </ReservationContainer>
     </BottomSheet>
@@ -122,7 +124,7 @@ const PeopleButton = styled.button`
   border-radius: 50%;
   border: 1px solid #d9d9d9;
   cursor: pointer;
-  background-color: ${(props) => (props.isActive ? "#eb4f27" : "#fff")};
+  background-color: ${(props) => (props.isActive ? '#eb4f27' : '#fff')};
   margin: 10px;
 `;
 const TimeButton = styled.button`
