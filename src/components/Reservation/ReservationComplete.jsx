@@ -6,7 +6,7 @@ import * as S from '../Reservation/ReservationComplete.styles';
 const ReservationComplete = () => {
   const navigate = useNavigate();
   return (
-    <BottomSheet heightPer={30}>
+    <BottomSheet heightPer={40}>
       <S.CompleteContainer>
         <S.CompleteMassage>예약이 완료되었습니다.</S.CompleteMassage>
         <S.CompleteInformation>

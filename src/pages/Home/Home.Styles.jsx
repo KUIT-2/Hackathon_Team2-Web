@@ -44,11 +44,13 @@ export const wrapAll = styled.div`
   height: 100%;
   position: relative;
   overflow-x: hidden;
+  margin-bottom: 24px;
 `;
 
 export const wrapTop = styled.div`
   background-color: white;
   position: fixed;
+  padding: 0 8px;
   padding-top: 50px;
   z-index: 1;
   border: none;
