@@ -5,6 +5,7 @@ import ReservationComplete from '../components/Reservation/ReservationComplete';
 import ReservationFinalCheck from '../components/Reservation/ReservationFinalCheck';
 import ReservationInformCheck from '../components/Reservation/ReservationInformCheck';
 import Home from './Home/Home';
+import Login from './Login/Login';
 import Payment from './Payment/Payment';
 import Root from './Root/Root';
 import Search from './Search/Search';
@@ -19,6 +20,10 @@ const Router = () => {
         {
           index: true,
           element: <Home />,
+        },
+        {
+          path: '/login',
+          element: <Login />,
         },
         {
           path: '/search',
