@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import * as S from './Home.Styles';
 // import "~slick-carousel/slick/slick.css";
 // import "~slick-carousel/slick/slick-theme.css";
@@ -6,6 +6,7 @@ import '../.././../node_modules/slick-carousel/slick/slick-theme.css';
 import '../.././../node_modules/slick-carousel/slick/slick.css';
 
 import { useNavigate } from 'react-router';
+import Splash from '../../components/Splash/Splash';
 import {
   MenuData,
   bottomData,
@@ -16,6 +17,8 @@ import {
 
 export default function Home() {
   const navigate = useNavigate();
+  const [hotPlaceDataArr, setHotPlaceDataArr] = useState(hotPlaceArrData);
+  const [isLoading, setIsLoading] = useState(true);
   const settings = {
     dots: true,
     infinite: true,
@@ -24,6 +27,44 @@ export default function Home() {
     slidesToScroll: 1,
   };
 
+  useEffect(() => {
+    setIsLoading(true);
+    fetch(`http://192.168.104.65:8080/store/hotplace`)
+      .then((data) => data.json())
+      .then((response) => {
+        // if (!response.ok) {
+        //   // console.log(response);
+        //   throw new Error('network error 400 or 500');
+        // }
+        console.log(response.result);
+
+        if (response.result && response.result.length > 0) {
+          // setHotPlaceDataArr([]);
+          let dataArr = [];
+          response.result.map((store, index) => {
+            let editedIndex = index;
+            if (index >= 5) {
+              editedIndex = index % 5;
+            }
+            dataArr.push({
+              ID: store.storeId,
+              Picture: hotPlaceArrData[editedIndex].Picture,
+              Name: store.storeName,
+              Rate: Math.floor(store.stars * 10) / 10,
+              Type: store.categoryName,
+              Loc: store.address,
+            });
+          });
+          setHotPlaceDataArr(dataArr);
+        }
+      })
+      .catch((error) => console.error(error))
+      .finally(() => setIsLoading(false));
+  }, []);
+  console.log(hotPlaceDataArr);
+  if (isLoading) {
+    return <Splash />;
+  }
   return (
     <S.wrapAll>
       <S.wrapTop>
@@ -87,7 +128,7 @@ export default function Home() {
         핫 한 웨이팅 라인업, 이제 캐치테이블에서!
       </S.categoryExplanation>
       <S.wrapHotPlace>
-        {hotPlaceArrData.map((value) => {
+        {hotPlaceDataArr.map((value) => {
           return (
             <S.wrapRestaurant onClick={() => navigate(`store/${value.ID}`)}>
               <S.restaurantPicture imageurl={value.Picture} />

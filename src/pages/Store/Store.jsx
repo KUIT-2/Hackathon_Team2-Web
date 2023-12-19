@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Outlet, useNavigate } from 'react-router';
+import { Outlet, useNavigate, useParams } from 'react-router';
 import backImg from '../../assets/back.svg';
 import homeImg from '../../assets/home.svg';
 import shareImg from '../../assets/share.svg';
@@ -56,6 +56,7 @@ export default function Store() {
   const [imageArr, setImageArr] = useState([storeImg, store2Img]);
   const [storeInform, setStoreInform] = useState(storeInformData);
   const [imageIndex, setImageIndex] = useState(0);
+  const { storeId } = useParams();
   const setReservationStore = useStore((state) => state.setReservationStore);
   const navigate = useNavigate();
   const nextHandler = () => {
@@ -72,6 +73,28 @@ export default function Store() {
       setReservationStore(storeInform);
     }
   }, [storeInform]);
+  useEffect(() => {
+    if (storeId) {
+      fetch(`http://192.168.104.65:8080/store/detail/${storeId}`)
+        .then((data) => data.json())
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error('network error 400 or 500');
+          }
+          setStoreInform({
+            name: response.result.storeName,
+            description: response.result.storeDesc,
+            category: response.result.categoryName,
+            location: response.result.address,
+            rate: response.result.avgScore,
+            reviewNum: 333,
+            pictureNum: 18,
+            id: storeId,
+          });
+        })
+        .catch((error) => console.error(error));
+    }
+  }, [storeId]);
 
   const prevHandler = () => {
     setImageIndex(() => {
@@ -162,6 +185,10 @@ export default function Store() {
               리뷰({storeInform.reviewNum})
             </CategoryBtn>
           </CategoryBar>
+          {selectedCategory === '홈' && <div>홈</div>}
+          {selectedCategory === '메뉴' && <div>메뉴</div>}
+          {selectedCategory === '사진' && <div>사진</div>}
+          {selectedCategory === '리뷰' && <div>리뷰</div>}
         </CategoryDescription>
       </Main>
       <Footer>
