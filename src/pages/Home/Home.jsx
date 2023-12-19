@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import * as S from './Home.Styles';
 // import "~slick-carousel/slick/slick.css";
 // import "~slick-carousel/slick/slick-theme.css";
@@ -47,6 +47,20 @@ import { useNavigate } from 'react-router';
 
 export default function Home() {
   const navigate = useNavigate();
+  const [locationArr, setLocationArr] = useState([
+    {
+      imgUrl: apgujeongImage,
+      locArr: ['압구정', '청담'],
+    },
+    {
+      imgUrl: itaewonImage,
+      locArr: ['이태원', '한남'],
+    },
+    {
+      imgUrl: busanImage,
+      locArr: ['부산'],
+    },
+  ]);
   const settings = {
     dots: true,
     infinite: true,
