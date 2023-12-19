@@ -23,10 +23,15 @@ export const PaymentFooter = styled.footer`
   position: fixed;
   bottom: 0;
   width: 100%;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  padding: 22px;
+  padding-bottom: 22px;
 `;
 export const PaymentFooterBtn = styled.button`
-  width: 100%;
-  margin: 0 22px;
+  width: 308px;
+  padding: 17px 0;
+  background-color: #eb4f27;
+  color: white;
+  border-radius: 12px;
 `;
