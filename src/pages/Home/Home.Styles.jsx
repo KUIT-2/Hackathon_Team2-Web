@@ -43,27 +43,18 @@ export const StyledSlider = styled(Slider)`
 export const wrapAll = styled.div`
   height: 100%;
   position: relative;
-`;
-
-export const spaceTop = styled.div`
-  position: sticky;
-  top: 0;
-  z-index: 1;
-  height: 50px;
-  width: 100%;
-  background-color: white;
-  border: none;
+  overflow-x: hidden;
 `;
 
 export const wrapTop = styled.div`
   background-color: white;
-  position: sticky;
-  height: 50px;
-  top: 50px;
+  position: fixed;
+  padding-top: 50px;
   z-index: 1;
   border: none;
   display: flex;
   flex-direction: row;
+  padding-bottom: 12px;
   width: 100%;
 `;
 
@@ -131,7 +122,7 @@ export const bell = styled.div`
 `;
 
 export const wrapCarousel = styled.div`
-  margin-top: 10%;
+  margin-top: 30%;
   width: 100%;
   aspect-ratio: 1.527 / 1;
   background: #d9d9d9;
