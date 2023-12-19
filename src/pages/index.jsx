@@ -29,23 +29,23 @@ const Router = () => {
           element: <Store />,
           children: [
             {
-              path: 'store/:storeId/reservation1',
+              path: 'reservation1',
               element: <ReservationCalender />,
             },
             {
-              path: 'store/:storeId/reservation2',
+              path: 'reservation2',
               element: <ReservationInformCheck />,
             },
             {
-              path: 'store/:storeId/payment',
+              path: 'payment',
               element: <ReservationPayment />,
               children: [
                 {
-                  path: 'store/:storeId/payment/check',
+                  path: 'check',
                   element: <ReservationFinalCheck />,
                 },
                 {
-                  path: 'store/:storeId/payment/complete',
+                  path: 'complete',
                   element: <ReservationComplete />,
                 },
               ],
