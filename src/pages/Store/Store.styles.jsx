@@ -32,11 +32,23 @@ export const BookMarkIcon = styled(Icon)`
 export const StoreImgSect = styled.section`
   width: 100%;
   position: relative;
+  overflow: hidden;
 `;
 export const StoreImg = styled.img`
   z-index: 0;
   width: 100%;
 `;
+export const CaeraselItemWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+`;
+export const CaeraselWrapper = styled.div`
+  transform: translate(-${(props) => props.imageindex}00vw);
+  transition: all 0.5s ease-out;
+  display: flex;
+  flex-direction: row;
+`;
+
 export const StoreImgNum = styled.div`
   color: white;
   background-color: rgba(0, 0, 0, 0.8);
@@ -47,7 +59,7 @@ export const StoreImgNum = styled.div`
 export const StoreImgNumSect = styled.div`
   width: 100%;
   position: absolute;
-  bottom: 23px;
+  bottom: 35px;
   display: flex;
   flex-direction: row;
   justify-content: center;

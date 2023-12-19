@@ -5,12 +5,15 @@ import homeImg from '../../assets/home.svg';
 import shareImg from '../../assets/share.svg';
 import locationImg from '../../assets/location.svg';
 import storeImg from '../../assets/ee45b3f0f27249b3821ff044e4a5ffdd.jpeg';
+import store2Img from '../../assets/f4cc8e02-8067-4b31-bfd0-8873981cbfc4.png';
 import bookMarkImg from '../../assets/bookmark.svg';
 import {
   BookMarkBtn,
   BookMarkBtnImg,
   BookMarkBtnText,
   BookMarkIcon,
+  CaeraselItemWrapper,
+  CaeraselWrapper,
   CategoryBar,
   CategoryBtn,
   CategoryDescription,
@@ -38,7 +41,27 @@ import {
 
 export default function Store() {
   const [selectedCategory, setSelectedCategory] = useState('홈');
+  const [imageArr, setImageArr] = useState([storeImg, store2Img]);
+  const [imageIndex, setImageIndex] = useState(0);
   const navigate = useNavigate();
+  const nextHandler = () => {
+    setImageIndex(() => {
+      if (imageIndex === imageArr.length - 1) {
+        return 0;
+      } else {
+        return imageIndex + 1;
+      }
+    });
+  };
+  const prevHandler = () => {
+    setImageIndex(() => {
+      if (imageIndex === 0) {
+        return imageArr.length - 1;
+      } else {
+        return imageIndex - 1;
+      }
+    });
+  };
   return (
     <>
       <Header>
@@ -51,7 +74,7 @@ export default function Store() {
           </IconBtn>
         </HeaderBtns>
         <HeaderBtns>
-          <IconBtn>
+          <IconBtn onClick={nextHandler}>
             <BookMarkIcon src={bookMarkImg} alt='' />
           </IconBtn>
           <IconBtn>
@@ -61,9 +84,18 @@ export default function Store() {
       </Header>
       <Main>
         <StoreImgSect>
-          <StoreImg src={storeImg} alt='' />
+          {/* <StoreImg src={storeImg} alt='' /> */}
+          <CaeraselWrapper imageindex={imageIndex}>
+            {imageArr.map((image, index) => (
+              <CaeraselItemWrapper key={index}>
+                <img src={image} alt='' />
+              </CaeraselItemWrapper>
+            ))}
+          </CaeraselWrapper>
           <StoreImgNumSect>
-            <StoreImgNum>1/5</StoreImgNum>
+            <StoreImgNum>
+              {imageIndex + 1}/{imageArr.length}
+            </StoreImgNum>
           </StoreImgNumSect>
         </StoreImgSect>
         <DescriptionSect>
