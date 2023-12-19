@@ -8,6 +8,10 @@ import {
   PaymentFooterBtn,
   PaymentHeader,
   PaymentHeaderText,
+  PaymentTitle,
+  WrapPersonLine,
+  PersonKorean,
+  PersonPrice,
 } from './Payment.styles';
 export default function Payment() {
   const navigate = useNavigate();
@@ -19,6 +23,14 @@ export default function Payment() {
         </PaymentBackBtn>
         <PaymentHeaderText>센시티브서울</PaymentHeaderText>
       </PaymentHeader>
+
+      <PaymentTitle>예약금 결제</PaymentTitle>
+
+      <WrapPersonLine>
+        <PersonKorean>1인 예약금 x X</PersonKorean>
+        <PersonPrice>XX,XXX원</PersonPrice>
+      </WrapPersonLine>
+
       <PaymentFooter>
         <PaymentFooterBtn onClick={() => navigate('check')}>
           10,000원 결제하기
