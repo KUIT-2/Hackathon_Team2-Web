@@ -165,8 +165,11 @@
     position: absolute;
     left:100px;
 }
-  .react-calendar__navigation__label{
-    flex-grow: 0 !important;
-  }
+  
+
+.react-calendar__navigation__label{
+  flex-grow: 0 !important;
+  font-weight: 600;
+}
 
   
