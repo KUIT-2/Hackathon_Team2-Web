@@ -45,58 +45,59 @@ import restaurant4Image from '../../assets/67f66c0f-3809-484f-92d2-96f4371397e2.
 import restaurant5Image from '../../assets/b9e85d2f-84a6-449d-9ca1-99564493855a.png';
 import { useNavigate } from 'react-router';
 
+const locArrData = [
+  {
+    imgUrl: apgujeongImage,
+    locArr: ['압구정', '청담'],
+  },
+  {
+    imgUrl: itaewonImage,
+    locArr: ['이태원', '한남'],
+  },
+  {
+    imgUrl: busanImage,
+    locArr: ['부산'],
+  },
+  {
+    imgUrl: sungsooImage,
+    locArr: ['성수'],
+  },
+  {
+    imgUrl: gwanghwamunImage,
+    locArr: ['광화문', '종로'],
+  },
+  {
+    imgUrl: jejuImage,
+    locArr: ['제주'],
+  },
+  {
+    imgUrl: daeguImage,
+    locArr: ['진주'],
+  },
+  {
+    imgUrl: apgujeongImage,
+    locArr: ['울산'],
+  },
+  {
+    imgUrl: itaewonImage,
+    locArr: ['광주'],
+  },
+  {
+    imgUrl: sungsooImage,
+    locArr: ['전주'],
+  },
+  {
+    imgUrl: jejuImage,
+    locArr: ['대전'],
+  },
+  {
+    imgUrl: busanImage,
+    locArr: ['군산'],
+  },
+];
+
 export default function Home() {
   const navigate = useNavigate();
-  const [locationArr, setLocationArr] = useState([
-    {
-      imgUrl: apgujeongImage,
-      locArr: ['압구정', '청담'],
-    },
-    {
-      imgUrl: itaewonImage,
-      locArr: ['이태원', '한남'],
-    },
-    {
-      imgUrl: busanImage,
-      locArr: ['부산'],
-    },
-    {
-      imgUrl: sungsooImage,
-      locArr: ['성수'],
-    },
-    {
-      imgUrl: gwanghwamunImage,
-      locArr: ['광화문', '종로'],
-    },
-    {
-      imgUrl: jejuImage,
-      locArr: ['제주'],
-    },
-    {
-      imgUrl: daeguImage,
-      locArr: ['진주'],
-    },
-    {
-      imgUrl: apgujeongImage,
-      locArr: ['울산'],
-    },
-    {
-      imgUrl: itaewonImage,
-      locArr: ['광주'],
-    },
-    {
-      imgUrl: sungsooImage,
-      locArr: ['전주'],
-    },
-    {
-      imgUrl: jejuImage,
-      locArr: ['대전'],
-    },
-    {
-      imgUrl: busanImage,
-      locArr: ['군산'],
-    },
-  ]);
   const settings = {
     dots: true,
     infinite: true,
@@ -199,7 +200,7 @@ export default function Home() {
           <S.locationTriangle />
           <S.myLocation>내주변</S.myLocation>
         </S.locationCircle1>
-        {locationArr.map((value) => {
+        {locArrData.map((value) => {
           if (!value.locArr) return <></>;
           if (value.locArr.length === 1) {
             return (
