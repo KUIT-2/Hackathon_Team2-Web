@@ -1,5 +1,5 @@
-import React from 'react';
-import { Outlet } from 'react-router';
+import React, { useState } from 'react';
+import { Outlet, useNavigate } from 'react-router';
 import backImg from '../../assets/back.svg';
 import homeImg from '../../assets/home.svg';
 import shareImg from '../../assets/share.svg';
@@ -30,7 +30,6 @@ import {
   PickHeader3,
   PickSect,
   ReserveBtn,
-  SelectedCategoryBtn,
   StoreImg,
   StoreImgNum,
   StoreImgNumSect,
@@ -38,14 +37,16 @@ import {
 } from './Store.styles';
 
 export default function Store() {
+  const [selectedCategory, setSelectedCategory] = useState('홈');
+  const navigate = useNavigate();
   return (
     <>
       <Header>
         <HeaderBtns>
-          <IconBtn>
+          <IconBtn onClick={() => navigate(-1)}>
             <Icon src={backImg} alt='' />
           </IconBtn>
-          <IconBtn>
+          <IconBtn onClick={() => navigate('/')}>
             <Icon src={homeImg} alt='' />
           </IconBtn>
         </HeaderBtns>
@@ -80,10 +81,30 @@ export default function Store() {
         </PickSect>
         <CategoryDescription>
           <CategoryBar>
-            <SelectedCategoryBtn>홈</SelectedCategoryBtn>
-            <CategoryBtn>메뉴</CategoryBtn>
-            <CategoryBtn>사진(10)</CategoryBtn>
-            <CategoryBtn>리뷰(25)</CategoryBtn>
+            <CategoryBtn
+              onClick={() => setSelectedCategory('홈')}
+              selected={selectedCategory === '홈'}
+            >
+              홈
+            </CategoryBtn>
+            <CategoryBtn
+              onClick={() => setSelectedCategory('메뉴')}
+              selected={selectedCategory === '메뉴'}
+            >
+              메뉴
+            </CategoryBtn>
+            <CategoryBtn
+              onClick={() => setSelectedCategory('사진')}
+              selected={selectedCategory === '사진'}
+            >
+              사진(10)
+            </CategoryBtn>
+            <CategoryBtn
+              onClick={() => setSelectedCategory('리뷰')}
+              selected={selectedCategory === '리뷰'}
+            >
+              리뷰(25)
+            </CategoryBtn>
           </CategoryBar>
         </CategoryDescription>
       </Main>

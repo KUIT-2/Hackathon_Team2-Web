@@ -132,6 +132,7 @@ export const Footer = styled.footer`
   padding: 14px 20px;
   background-color: white;
   border-top: 2px lightgray solid;
+  z-index: 3;
   gap: 20px;
 `;
 export const BookMarkBtn = styled.button`
@@ -174,11 +175,8 @@ export const CategoryBtn = styled.button`
   border: none;
   font-size: 16px;
   font-style: normal;
-  font-weight: 500;
-  border-bottom: 2px solid lightgray;
-  color: #949494;
-`;
-export const SelectedCategoryBtn = styled(CategoryBtn)`
-  color: black;
-  font-weight: 600;
+  font-weight: ${(props) => (props.selected ? '600' : '500')};
+  border-bottom: 2px solid
+    ${(props) => (props.selected ? 'black' : 'lightgray')};
+  color: ${(props) => (props.selected ? 'black' : '#949494')};
 `;
