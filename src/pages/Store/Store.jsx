@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Outlet, useNavigate } from 'react-router';
 import backImg from '../../assets/back.svg';
 import homeImg from '../../assets/home.svg';
@@ -38,20 +38,25 @@ import {
   StoreImgNumSect,
   StoreImgSect,
 } from './Store.styles';
+import { useStore } from '../../store/useStore';
+
+const storeInformData = {
+  name: '센시티브서울',
+  description: '감각적인 이탈리안 레스토랑',
+  category: '이탈리아음식',
+  location: '한남동',
+  rate: 4.3,
+  reviewNum: 333,
+  pictureNum: 18,
+  id: 1,
+};
 
 export default function Store() {
   const [selectedCategory, setSelectedCategory] = useState('홈');
   const [imageArr, setImageArr] = useState([storeImg, store2Img]);
-  const [storeInform, setStoreInform] = useState({
-    name: '센시티브서울',
-    description: '감각적인 이탈리안 레스토랑',
-    category: '이탈리아음식',
-    location: '한남동',
-    rate: 4.3,
-    reviewNum: 333,
-    pictureNum: 18,
-  });
+  const [storeInform, setStoreInform] = useState(storeInformData);
   const [imageIndex, setImageIndex] = useState(0);
+  const setReservationStore = useStore((state) => state.setReservationStore);
   const navigate = useNavigate();
   const nextHandler = () => {
     setImageIndex(() => {
@@ -62,6 +67,12 @@ export default function Store() {
       }
     });
   };
+  useEffect(() => {
+    if (storeInform) {
+      setReservationStore(storeInform);
+    }
+  }, [storeInform]);
+
   const prevHandler = () => {
     setImageIndex(() => {
       if (imageIndex === 0) {
