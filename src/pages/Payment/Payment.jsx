@@ -2,9 +2,9 @@ import React from 'react';
 import { Outlet, useNavigate } from 'react-router';
 import backImg from '../../assets/back.svg';
 
-import qoImg from "../../assets/q-o.svg";
-import downArrowImage from "../../assets/arrow-toggle-down.svg";
-import checkBoxImage from "../../assets/checkbox.svg";
+import qoImg from '../../assets/q-o.svg';
+import downArrowImage from '../../assets/arrow-toggle-down.svg';
+import checkBoxImage from '../../assets/checkbox.svg';
 
 import {
   PaymentBackBtn,
@@ -37,6 +37,7 @@ import {
   CheckBox,
   AgreeSentence,
 } from './Payment.styles';
+import { useStore } from '../../store/useStore';
 export default function Payment() {
   const navigate = useNavigate();
   const reservationData = useStore((state) => state.reservation);
@@ -83,7 +84,7 @@ export default function Payment() {
       <ReservationMiddleLine3 />
 
       <PaymentTitle3>주문 내용 확인 및 결제 동의</PaymentTitle3>
-      <ChoiceWarning2 >필수 선택</ChoiceWarning2>
+      <ChoiceWarning2>필수 선택</ChoiceWarning2>
       <CheckBox imageurl={checkBoxImage} />
       <AgreeSentence>[필수] 취소 및 환불 규정에 동의합니다</AgreeSentence>
 
